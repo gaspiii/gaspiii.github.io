@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaspar Osorio | Ingeniero en Computación</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0a0a0f',
+                            800: '#121218',
+                            700: '#1a1a24',
+                        },
+                        neon: {
+                            green: '#00ff9d',
+                            blue: '#00ccff',
+                            purple: '#ff00ff',
+                            pink: '#ff0080'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-in': 'slideIn 0.5s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            '0%': { 'box-shadow': '0 0 5px currentColor, 0 0 10px currentColor' },
+                            '100%': { 'box-shadow': '0 0 15px currentColor, 0 0 30px currentColor' }
+                        },
+                        slideIn: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00ff9d, #00ccff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .neon-border {
+            border: 1px solid;
+            border-image: linear-gradient(135deg, #00ff9d, #00ccff, #ff00ff) 1;
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 255, 157, 0.15);
+        }
+
+        .section-enter {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .section-enter.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #00ff9d, #00ccff, #ff00ff);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* Scroll personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #121218;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #00ff9d, #00ccff);
+            border-radius: 4px;
+        }
+
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(0, 255, 157, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 157, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="grid-pattern">
+    <!-- Barra de progreso -->
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Navegación estilo React -->
+    <nav class="fixed w-full z-50 glass py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 rounded-full bg-neon-green animate-pulse"></div>
+                <span class="text-xl font-bold gradient-text">GasparOsorio</span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#inicio" class="text-gray-300 hover:text-neon-green transition-colors duration-300 font-medium">Inicio</a>
+                <a href="#proyectos" class="text-gray-300 hover:text-neon-blue transition-colors duration-300 font-medium">Proyectos</a>
+                <a href="#experiencia" class="text-gray-300 hover:text-neon-purple transition-colors duration-300 font-medium">Experiencia</a>
+                <a href="#servicios" class="text-gray-300 hover:text-neon-pink transition-colors duration-300 font-medium">Servicios</a>
+                <button class="bg-neon-green text-dark-900 px-6 py-2 rounded-lg font-semibold hover:bg-neon-blue transition-colors duration-300">
+                    Contactar
+                </button>
+            </div>
+
+            <button class="md:hidden text-neon-green">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 opacity-90"></div>
+        
+        <!-- Elementos decorativos flotantes -->
+        <div class="absolute top-1/4 left-1/4 w-4 h-4 rounded-full bg-neon-green animate-float opacity-60"></div>
+        <div class="absolute top-1/3 right-1/4 w-6 h-6 rounded-full bg-neon-blue animate-float opacity-40" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-3 h-3 rounded-full bg-neon-purple animate-float opacity-70" style="animation-delay: 4s;"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 animate-slide-in">
+                    <div class="inline-flex items-center space-x-2 bg-dark-800 px-4 py-2 rounded-full border border-neon-green/30">
+                        <div class="w-2 h-2 rounded-full bg-neon-green animate-pulse"></div>
+                        <span class="text-sm text-neon-green">Disponible para proyectos</span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+                        Gaspar
+                        <span class="gradient-text block">Osorio</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-300 leading-relaxed">
+                        Ingeniero en Computación e Informática especializado en desarrollo 
+                        full-stack y soluciones innovadoras que superan expectativas.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <button class="bg-neon-green text-dark-900 px-8 py-4 rounded-xl font-semibold hover:bg-neon-blue transition-all duration-300 transform hover:scale-105">
+                            Ver Proyectos
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                        <button class="glass px-8 py-4 rounded-xl font-semibold border border-neon-green/30 hover:border-neon-green transition-all duration-300">
+                            Descargar CV
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="relative w-80 h-80 lg:w-96 lg:h-96 mx-auto">
+                        <!-- Avatar placeholder con efecto neón -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-neon-green via-neon-blue to-neon-purple rounded-2xl animate-glow opacity-20"></div>
+                        <div class="absolute inset-4 glass rounded-xl flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-32 h-32 bg-gradient-to-br from-neon-green to-neon-blue rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-code text-4xl text-dark-900"></i>
+                                </div>
+                                <p class="text-gray-400">Ing. Computación e Informática</p>
+                                <p class="text-neon-green font-semibold">UNAB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Proyectos</span> Destacados
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Soluciones innovadoras desarrolladas con tecnologías modernas y enfoque en resultados
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Proyecto 1 -->
+                <div class="glass rounded-2xl p-6 card-hover group">
+                    <div class="mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-neon-green/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-chart-line text-neon-green text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">SGAL Platform</h3>
+                        <p class="text-gray-400 mb-4">Sistema de gestión para estudios de suelo</p>
+                    </div>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
+                            <span class="text-sm text-gray-300">React + Vite Frontend</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
+                            <span class="text-sm text-gray-300">Node.js + Express Backend</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
+                            <span class="text-sm text-gray-300">MongoDB Database</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <span class="text-neon-green font-semibold">Desarrollador Frontend</span>
+                        <div class="flex space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
+                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
+                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="glass rounded-2xl p-6 card-hover group">
+                    <div class="mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-neon-blue/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-shopping-cart text-neon-blue text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">NEONLEGENDS</h3>
+                        <p class="text-gray-400 mb-4">E-commerce para letreros luminosos</p>
+                    </div>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
+                            <span class="text-sm text-gray-300">Shopify + Liquid</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
+                            <span class="text-sm text-gray-300">MercadoPago Integration</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
+                            <span class="text-sm text-gray-300">Custom Theme Development</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <a href="https://www.neonlegends.cl" class="text-neon-blue font-semibold hover:text-neon-green transition-colors">
+                            neonlegends.cl →
+                        </a>
+                        <div class="flex space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
+                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
+                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="glass rounded-2xl p-6 card-hover group">
+                    <div class="mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-neon-purple/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-robot text-neon-purple text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">AUTOMATIZA-TI</h3>
+                        <p class="text-gray-400 mb-4">Automatización de procesos empresariales</p>
+                    </div>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
+                            <span class="text-sm text-gray-300">Python + Flask</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
+                            <span class="text-sm text-gray-300">React Dashboard</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
+                            <span class="text-sm text-gray-300">Docker Containers</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <span class="text-neon-purple font-semibold">Full-Stack Developer</span>
+                        <div class="flex space-x-2">
+                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
+                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
+                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Experiencia -->
+    <section id="experiencia" class="py-20 bg-dark-800/50 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+                    Experiencia <span class="gradient-text">Profesional</span>
+                </h2>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="glass rounded-2xl p-8">
+                    <div class="flex items-start space-x-6">
+                        <div class="w-16 h-16 rounded-xl bg-neon-green/20 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bolt text-neon-green text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-4">
+                                <h3 class="text-2xl font-bold text-white">Práctica Profesional</h3>
+                                <span class="text-neon-green font-semibold bg-neon-green/20 px-4 py-1 rounded-full">Prácticas 1 & 2</span>
+                            </div>
+                            <h4 class="text-xl text-neon-blue mb-2">Neonlegends Spa</h4>
+                            <p class="text-gray-400 mb-6">Empresa líder en fabricación de letreros luminosos en acrílico y neones</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div>
+                                    <h5 class="text-neon-green font-semibold mb-3">Actividades Principales</h5>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-center space-x-2">
+                                            <i class="fas fa-check text-neon-green text-sm"></i>
+                                            <span class="text-gray-300">Diseño y prototipado de letreros</span>
+                                        </li>
+                                        <li class="flex items-center space-x-2">
+                                            <i class="fas fa-check text-neon-green text-sm"></i>
+                                            <span class="text-gray-300">Operación máquinas corte láser</span>
+                                        </li>
+                                        <li class="flex items-center space-x-2">
+                                            <i class="fas fa-check text-neon-green text-sm"></i>
+                                            <span class="text-gray-300">Desarrollo web con Shopify</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="text-neon-blue font-semibold mb-3">Aprendizajes Clave</h5>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-center space-x-2">
+                                            <i class="fas fa-star text-neon-blue text-sm"></i>
+                                            <span class="text-gray-300">Trabajo bajo presión</span>
+                                        </li>
+                                        <li class="flex items-center space-x-2">
+                                            <i class="fas fa-star text-neon-blue text-sm"></i>
+                                            <span class="text-gray-300">Innovación y creatividad</span>
+                                        </li>
+                                        <li class="flex items-center space-x-2">
+                                            <i class="fas fa-star text-neon-blue text-sm"></i>
+                                            <span class="text-gray-300">Liderazgo de proyectos</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Servicios</span> que Ofrezco
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Soluciones tecnológicas adaptadas a las necesidades específicas de cada proyecto
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="glass rounded-2xl p-8 card-hover group text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-neon-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-neon-green/30 transition-colors">
+                        <i class="fas fa-code text-neon-green text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Desarrollo Web</h3>
+                    <p class="text-gray-400 mb-6">
+                        Aplicaciones web modernas y responsivas construidas con las últimas tecnologías
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• React & Next.js</li>
+                        <li>• Tailwind CSS</li>
+                        <li>• APIs REST & GraphQL</li>
+                    </ul>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="glass rounded-2xl p-8 card-hover group text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-neon-blue/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-neon-blue/30 transition-colors">
+                        <i class="fas fa-shopping-cart text-neon-blue text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">E-commerce</h3>
+                    <p class="text-gray-400 mb-6">
+                        Tiendas online optimizadas para conversión con integración de pagos
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Shopify Development</li>
+                        <li>• MercadoPago Integration</li>
+                        <li>• Custom Themes</li>
+                    </ul>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="glass rounded-2xl p-8 card-hover group text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-neon-purple/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-neon-purple/30 transition-colors">
+                        <i class="fas fa-robot text-neon-purple text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Automatización</h3>
+                    <p class="text-gray-400 mb-6">
+                        Soluciones para optimizar procesos y reducir tareas repetitivas
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Process Automation</li>
+                        <li>• Workflow Optimization</li>
+                        <li>• Custom Scripts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 glass border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-6 lg:mb-0">
+                    <div class="w-3 h-3 rounded-full bg-neon-green animate-pulse"></div>
+                    <span class="text-xl font-bold gradient-text">GasparOsorio</span>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 lg:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-neon-green transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-neon-purple transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center lg:text-right">
+                    <p class="text-gray-400">© 2024 Gaspar Osorio. Todos los derechos reservados.</p>
+                    <p class="text-gray-500 text-sm">Ingeniero en Computación e Informática - UNAB</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Barra de progreso de scroll
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+
+        // Animación de entrada de secciones
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observar todas las secciones
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('section-enter');
+            observer.observe(section);
+        });
+
+        // Smooth scroll para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
