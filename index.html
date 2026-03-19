@@ -3,96 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaspar Osorio | Ingeniero en Computación</title>
+    <title>Gaspar Osorio | Desarrollo Web y Plataformas</title>
+    <meta name="description" content="Portafolio de Gaspar Osorio: desarrollo web, e-commerce, sistemas internos y experiencias digitales orientadas a resultado.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        dark: {
-                            900: '#0a0a0f',
-                            800: '#121218',
-                            700: '#1a1a24',
+                        ink: {
+                            950: '#050505',
+                            900: '#0a0a0b',
+                            850: '#111114',
+                            800: '#17171c'
                         },
-                        neon: {
-                            green: '#00ff9d',
-                            blue: '#00ccff',
-                            purple: '#ff00ff',
-                            pink: '#ff0080'
+                        brand: {
+                            gold: '#ffd54a',
+                            cyan: '#63e6ff',
+                            lime: '#b8ff63',
+                            ember: '#ff9b45'
                         }
                     },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'slide-in': 'slideIn 0.5s ease-out forwards'
+                        float: 'float 8s ease-in-out infinite',
+                        glow: 'glow 2.6s ease-in-out infinite alternate'
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' }
+                            '50%': { transform: 'translateY(-16px)' }
                         },
                         glow: {
-                            '0%': { 'box-shadow': '0 0 5px currentColor, 0 0 10px currentColor' },
-                            '100%': { 'box-shadow': '0 0 15px currentColor, 0 0 30px currentColor' }
-                        },
-                        slideIn: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                            '0%': { boxShadow: '0 0 0 rgba(99, 230, 255, 0.18)' },
+                            '100%': { boxShadow: '0 18px 50px rgba(99, 230, 255, 0.28)' }
                         }
                     }
                 }
             }
-        }
+        };
     </script>
     <style>
+        :root {
+            --panel: rgba(18, 18, 22, 0.78);
+            --panel-strong: rgba(24, 24, 30, 0.92);
+            --line: rgba(255, 255, 255, 0.1);
+            --gold: #ffd54a;
+            --cyan: #63e6ff;
+        }
+
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0a0f;
-            color: #ffffff;
+            margin: 0;
+            font-family: 'Manrope', sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(255, 213, 74, 0.16), transparent 28%),
+                radial-gradient(circle at top right, rgba(99, 230, 255, 0.12), transparent 30%),
+                linear-gradient(180deg, #060606 0%, #0b0b0d 38%, #050505 100%);
+            color: #f8f7f2;
             overflow-x: hidden;
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        h1, h2, h3, h4, h5, .display-font {
+            font-family: 'Sora', sans-serif;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--cyan));
+            z-index: 80;
+            transition: width 0.2s ease;
+        }
+
+        .glass-panel {
+            background: var(--panel);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--line);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        }
+
+        .glass-panel-strong {
+            background: var(--panel-strong);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 32px 90px rgba(0, 0, 0, 0.35);
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #00ff9d, #00ccff, #ff00ff);
+            background: linear-gradient(135deg, #fff5cc 0%, var(--gold) 35%, var(--cyan) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .neon-border {
-            border: 1px solid;
-            border-image: linear-gradient(135deg, #00ff9d, #00ccff, #ff00ff) 1;
+        .soft-grid {
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 42px 42px;
         }
 
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
+        .hero-backdrop {
+            background:
+                linear-gradient(90deg, rgba(5, 5, 5, 0.88) 0%, rgba(5, 5, 5, 0.56) 46%, rgba(5, 5, 5, 0.92) 100%),
+                url('https://onetoonechile.com/assets/fondo-1WQN0_EA.png') center/cover no-repeat;
         }
 
-        .card-hover:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 255, 157, 0.15);
+        .hero-glow {
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(90px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.65rem 1rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 213, 74, 0.24);
+            background: rgba(255, 255, 255, 0.04);
+            color: #f7f2d7;
+        }
+
+        .hero-shot {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            min-height: 540px;
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.68) 100%),
+                url('https://onetoonechile.com/assets/hero-CfTNcE7O.png') center/cover no-repeat;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+        }
+
+        .project-card {
+            transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 213, 74, 0.28);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+        }
+
+        .project-preview {
+            position: relative;
+            overflow: hidden;
+            min-height: 220px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(145deg, #15151b, #0f1013);
+        }
+
+        .preview-oto {
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0.56) 100%),
+                url('https://onetoonechile.com/assets/hero-CfTNcE7O.png') center/cover no-repeat;
+        }
+
+        .preview-sgal {
+            background:
+                radial-gradient(circle at top right, rgba(99, 230, 255, 0.2), transparent 30%),
+                linear-gradient(150deg, rgba(23, 23, 28, 1) 0%, rgba(12, 15, 20, 1) 100%);
+        }
+
+        .preview-neon {
+            background:
+                radial-gradient(circle at top center, rgba(99, 230, 255, 0.22), transparent 26%),
+                radial-gradient(circle at bottom left, rgba(255, 155, 69, 0.2), transparent 24%),
+                linear-gradient(145deg, #0b1016 0%, #16121a 100%);
+        }
+
+        .preview-cucuvana {
+            background:
+                radial-gradient(circle at top right, rgba(255, 155, 69, 0.24), transparent 28%),
+                radial-gradient(circle at bottom left, rgba(255, 213, 74, 0.18), transparent 22%),
+                linear-gradient(145deg, #18110e 0%, #0e0d10 100%);
+        }
+
+        .browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .browser-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.26);
+        }
+
+        .shine-line {
+            position: absolute;
+            inset: 0 auto 0 -30%;
+            width: 22%;
+            transform: skewX(-22deg);
+            background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+            opacity: 0.6;
         }
 
         .section-enter {
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease-out;
+            transform: translateY(40px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
         }
 
         .section-enter.active {
@@ -100,305 +235,187 @@
             transform: translateY(0);
         }
 
-        .progress-bar {
-            position: fixed;
-            top: 0;
+        .contact-field {
+            width: 100%;
+            min-height: 180px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.04);
+            color: #ffffff;
+            padding: 1rem 1.1rem;
+            font: inherit;
+            resize: vertical;
+        }
+
+        .contact-field:focus {
+            outline: none;
+            border-color: rgba(99, 230, 255, 0.56);
+            box-shadow: 0 0 0 4px rgba(99, 230, 255, 0.12);
+        }
+
+        .contact-field::placeholder {
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
             left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #00ff9d, #00ccff, #ff00ff);
-            z-index: 1000;
-            transition: width 0.3s ease;
+            bottom: -0.4rem;
+            width: 100%;
+            height: 2px;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+            background: linear-gradient(90deg, var(--gold), var(--cyan));
         }
 
-        /* Scroll personalizado */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .nav-link:hover::after {
+            transform: scaleX(1);
         }
 
-        ::-webkit-scrollbar-track {
-            background: #121218;
+        @media (max-width: 1024px) {
+            .hero-shot {
+                min-height: 420px;
+            }
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #00ff9d, #00ccff);
-            border-radius: 4px;
-        }
-
-        .grid-pattern {
-            background-image: 
-                linear-gradient(rgba(0, 255, 157, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 157, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
+        @media (max-width: 640px) {
+            .hero-shot {
+                min-height: 360px;
+            }
         }
     </style>
 </head>
-<body class="grid-pattern">
-    <!-- Barra de progreso -->
+<body class="soft-grid">
     <div class="progress-bar" id="progress-bar"></div>
 
-    <!-- Navegación estilo React -->
-    <nav class="fixed w-full z-50 glass py-4">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="w-3 h-3 rounded-full bg-neon-green animate-pulse"></div>
-                <span class="text-xl font-bold gradient-text">GasparOsorio</span>
-            </div>
-            
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#inicio" class="text-gray-300 hover:text-neon-green transition-colors duration-300 font-medium">Inicio</a>
-                <a href="#proyectos" class="text-gray-300 hover:text-neon-blue transition-colors duration-300 font-medium">Proyectos</a>
-                <a href="#experiencia" class="text-gray-300 hover:text-neon-purple transition-colors duration-300 font-medium">Experiencia</a>
-                <a href="#servicios" class="text-gray-300 hover:text-neon-pink transition-colors duration-300 font-medium">Servicios</a>
-                <button class="bg-neon-green text-dark-900 px-6 py-2 rounded-lg font-semibold hover:bg-neon-blue transition-colors duration-300">
-                    Contactar
-                </button>
-            </div>
+    <nav class="fixed inset-x-0 top-0 z-50">
+        <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6">
+            <div class="glass-panel rounded-full px-5 py-3">
+                <div class="flex items-center justify-between gap-4">
+                    <a href="#inicio" class="flex items-center gap-3">
+                        <span class="h-3 w-3 animate-pulse rounded-full bg-brand.gold"></span>
+                        <span class="display-font text-lg font-semibold text-white">GasparOsorio</span>
+                    </a>
 
-            <button class="md:hidden text-neon-green">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
+                    <div class="hidden items-center gap-7 md:flex">
+                        <a href="#inicio" class="nav-link text-sm font-semibold text-gray-200 hover:text-white">Inicio</a>
+                        <a href="#proyectos" class="nav-link text-sm font-semibold text-gray-200 hover:text-white">Proyectos</a>
+                        <a href="#experiencia" class="nav-link text-sm font-semibold text-gray-200 hover:text-white">Experiencia</a>
+                        <a href="#servicios" class="nav-link text-sm font-semibold text-gray-200 hover:text-white">Servicios</a>
+                        <a href="#contacto" class="nav-link text-sm font-semibold text-gray-200 hover:text-white">Contacto</a>
+                    </div>
+
+                    <div class="hidden md:block">
+                        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full bg-brand.gold px-5 py-2.5 text-sm font-bold text-ink-950 hover:scale-105">
+                            Hablar por WhatsApp
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <button id="menu-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white md:hidden" type="button" aria-label="Abrir menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <div id="mobile-menu" class="hidden border-t border-white/10 pt-4 md:hidden">
+                    <div class="flex flex-col gap-3 pb-2">
+                        <a href="#inicio" class="rounded-2xl px-3 py-2 text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-white">Inicio</a>
+                        <a href="#proyectos" class="rounded-2xl px-3 py-2 text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-white">Proyectos</a>
+                        <a href="#experiencia" class="rounded-2xl px-3 py-2 text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-white">Experiencia</a>
+                        <a href="#servicios" class="rounded-2xl px-3 py-2 text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-white">Servicios</a>
+                        <a href="#contacto" class="rounded-2xl bg-brand.gold px-3 py-2 text-sm font-bold text-ink-950">Hablar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 opacity-90"></div>
-        
-        <!-- Elementos decorativos flotantes -->
-        <div class="absolute top-1/4 left-1/4 w-4 h-4 rounded-full bg-neon-green animate-float opacity-60"></div>
-        <div class="absolute top-1/3 right-1/4 w-6 h-6 rounded-full bg-neon-blue animate-float opacity-40" style="animation-delay: 2s;"></div>
-        <div class="absolute bottom-1/4 left-1/3 w-3 h-3 rounded-full bg-neon-purple animate-float opacity-70" style="animation-delay: 4s;"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 animate-slide-in">
-                    <div class="inline-flex items-center space-x-2 bg-dark-800 px-4 py-2 rounded-full border border-neon-green/30">
-                        <div class="w-2 h-2 rounded-full bg-neon-green animate-pulse"></div>
-                        <span class="text-sm text-neon-green">Disponible para proyectos</span>
-                    </div>
-                    
-                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
-                        Gaspar
-                        <span class="gradient-text block">Osorio</span>
-                    </h1>
-                    
-                    <p class="text-xl text-gray-300 leading-relaxed">
-                        Ingeniero en Computación e Informática especializado en desarrollo 
-                        full-stack y soluciones innovadoras que superan expectativas.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <button class="bg-neon-green text-dark-900 px-8 py-4 rounded-xl font-semibold hover:bg-neon-blue transition-all duration-300 transform hover:scale-105">
-                            Ver Proyectos
-                            <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                        <button class="glass px-8 py-4 rounded-xl font-semibold border border-neon-green/30 hover:border-neon-green transition-all duration-300">
-                            Descargar CV
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="relative">
-                    <div class="relative w-80 h-80 lg:w-96 lg:h-96 mx-auto">
-                        <!-- Avatar placeholder con efecto neón -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-neon-green via-neon-blue to-neon-purple rounded-2xl animate-glow opacity-20"></div>
-                        <div class="absolute inset-4 glass rounded-xl flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="w-32 h-32 bg-gradient-to-br from-neon-green to-neon-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                                    <i class="fas fa-code text-4xl text-dark-900"></i>
-                                </div>
-                                <p class="text-gray-400">Ing. Computación e Informática</p>
-                                <p class="text-neon-green font-semibold">UNAB</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="inicio" class="relative overflow-hidden pt-28">
+        <div class="hero-backdrop absolute inset-0"></div>
+        <div class="hero-glow left-[-5rem] top-28 h-64 w-64 bg-brand.gold/20"></div>
+        <div class="hero-glow bottom-10 right-0 h-72 w-72 bg-brand.cyan/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-ink-950"></div>
 
-    <!-- Sección Proyectos -->
-    <section id="proyectos" class="py-20 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
-                    <span class="gradient-text">Proyectos</span> Destacados
-                </h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                    Soluciones innovadoras desarrolladas con tecnologías modernas y enfoque en resultados
-                </p>
-            </div>
+        <div class="relative mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:pb-24">
+            <div class="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+                <div class="section-enter space-y-8">
+                    <div class="pill">
+                        <span class="h-2.5 w-2.5 rounded-full bg-brand.lime"></span>
+                        <span class="text-sm font-semibold">Disponible para proyectos web, e-commerce y sistemas internos</span>
+                    </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Proyecto 1 -->
-                <div class="glass rounded-2xl p-6 card-hover group">
-                    <div class="mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-neon-green/20 flex items-center justify-center mb-4">
-                            <i class="fas fa-chart-line text-neon-green text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">SGAL Platform</h3>
-                        <p class="text-gray-400 mb-4">Sistema de gestión para estudios de suelo</p>
-                    </div>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
-                            <span class="text-sm text-gray-300">React + Vite Frontend</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
-                            <span class="text-sm text-gray-300">Node.js + Express Backend</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
-                            <span class="text-sm text-gray-300">MongoDB Database</span>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center justify-between">
-                        <span class="text-neon-green font-semibold">Desarrollador Frontend</span>
-                        <div class="flex space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
-                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
-                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
-                        </div>
-                    </div>
-                </div>
+                    <div class="space-y-6">
+                        <h1 class="max-w-4xl text-5xl font-extrabold leading-[1.02] text-white sm:text-6xl lg:text-7xl">
+                            Desarrollo sitios que
+                            <span class="gradient-text block">se ven fuertes y convierten mejor.</span>
+                        </h1>
 
-                <!-- Proyecto 2 -->
-                <div class="glass rounded-2xl p-6 card-hover group">
-                    <div class="mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-neon-blue/20 flex items-center justify-center mb-4">
-                            <i class="fas fa-shopping-cart text-neon-blue text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">NEONLEGENDS</h3>
-                        <p class="text-gray-400 mb-4">E-commerce para letreros luminosos</p>
+                        <p class="max-w-2xl text-lg leading-8 text-gray-200 sm:text-xl">
+                            Soy Gaspar Osorio, Ingeniero en Computacion e Informatica. Diseno y construyo experiencias digitales con foco en claridad visual, conversion y estructura tecnica solida.
+                        </p>
                     </div>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
-                            <span class="text-sm text-gray-300">Shopify + Liquid</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
-                            <span class="text-sm text-gray-300">MercadoPago Integration</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
-                            <span class="text-sm text-gray-300">Custom Theme Development</span>
-                        </div>
+
+                    <div class="flex flex-wrap gap-3">
+                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-100">Sitios corporativos</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-100">Landing pages de alto impacto</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-100">E-commerce</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-100">Plataformas internas</span>
                     </div>
-                    
-                    <div class="flex items-center justify-between">
-                        <a href="https://www.neonlegends.cl" class="text-neon-blue font-semibold hover:text-neon-green transition-colors">
-                            neonlegends.cl →
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#proyectos" class="inline-flex items-center gap-2 rounded-full bg-brand.gold px-7 py-4 text-sm font-extrabold text-ink-950">
+                            Ver proyectos
+                            <i class="fas fa-arrow-right text-xs"></i>
                         </a>
-                        <div class="flex space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
-                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
-                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
+                        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-7 py-4 text-sm font-bold text-white">
+                            Enviar mensaje
+                            <i class="fab fa-whatsapp text-base text-brand.lime"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid gap-4 sm:grid-cols-3">
+                        <div class="glass-panel rounded-3xl p-4">
+                            <p class="text-3xl font-extrabold text-white">4</p>
+                            <p class="mt-1 text-sm text-gray-300">proyectos destacados visibles</p>
+                        </div>
+                        <div class="glass-panel rounded-3xl p-4">
+                            <p class="text-3xl font-extrabold text-white">1</p>
+                            <p class="mt-1 text-sm text-gray-300">formulario directo a wa.link</p>
+                        </div>
+                        <div class="glass-panel rounded-3xl p-4">
+                            <p class="text-3xl font-extrabold text-white">100%</p>
+                            <p class="mt-1 text-sm text-gray-300">orientado a impacto visual y conversion</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 3 -->
-                <div class="glass rounded-2xl p-6 card-hover group">
-                    <div class="mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-neon-purple/20 flex items-center justify-center mb-4">
-                            <i class="fas fa-robot text-neon-purple text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">AUTOMATIZA-TI</h3>
-                        <p class="text-gray-400 mb-4">Automatización de procesos empresariales</p>
-                    </div>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
-                            <span class="text-sm text-gray-300">Python + Flask</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-green"></div>
-                            <span class="text-sm text-gray-300">React Dashboard</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-blue"></div>
-                            <span class="text-sm text-gray-300">Docker Containers</span>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center justify-between">
-                        <span class="text-neon-purple font-semibold">Full-Stack Developer</span>
-                        <div class="flex space-x-2">
-                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
-                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
-                            <div class="w-2 h-2 rounded-full bg-neon-purple"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="section-enter relative">
+                    <div class="hero-shot animate-glow">
+                        <div class="absolute left-5 top-5 rounded-full border border-white/15 bg-black/45 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-brand.gold">Caso destacado</div>
 
-    <!-- Sección Experiencia -->
-    <section id="experiencia" class="py-20 bg-dark-800/50 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
-                    Experiencia <span class="gradient-text">Profesional</span>
-                </h2>
-            </div>
-
-            <div class="max-w-4xl mx-auto">
-                <div class="glass rounded-2xl p-8">
-                    <div class="flex items-start space-x-6">
-                        <div class="w-16 h-16 rounded-xl bg-neon-green/20 flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-bolt text-neon-green text-2xl"></i>
+                        <div class="absolute right-5 top-5 w-40 rounded-3xl border border-white/12 bg-black/70 p-4 text-white shadow-2xl">
+                            <p class="text-4xl font-extrabold leading-none">+150%</p>
+                            <p class="mt-2 text-sm font-semibold text-gray-200">enfoque visual comercial</p>
                         </div>
-                        <div class="flex-1">
-                            <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-4">
-                                <h3 class="text-2xl font-bold text-white">Práctica Profesional</h3>
-                                <span class="text-neon-green font-semibold bg-neon-green/20 px-4 py-1 rounded-full">Prácticas 1 & 2</span>
+
+                        <div class="absolute bottom-5 left-5 right-5 grid gap-4 sm:grid-cols-[1fr_auto]">
+                            <div class="rounded-[1.6rem] border border-white/10 bg-black/70 p-5 backdrop-blur">
+                                <div class="mb-3 flex items-center gap-3">
+                                    <img src="https://onetoonechile.com/assets/logo-4q6CTFKq.png" alt="Logo One to One Chile" class="h-9 w-auto object-contain">
+                                    <span class="rounded-full border border-brand.gold/30 bg-brand.gold/10 px-3 py-1 text-xs font-bold text-brand.gold">One to One Chile</span>
+                                </div>
+                                <h2 class="display-font text-2xl font-bold text-white">Referencia visual fuerte, contraste alto y CTA claros.</h2>
+                                <p class="mt-3 max-w-xl text-sm leading-6 text-gray-200">Tome esa energia como guia para reforzar el portafolio y darle una presentacion mas premium y comercial.</p>
                             </div>
-                            <h4 class="text-xl text-neon-blue mb-2">Neonlegends Spa</h4>
-                            <p class="text-gray-400 mb-6">Empresa líder en fabricación de letreros luminosos en acrílico y neones</p>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                                <div>
-                                    <h5 class="text-neon-green font-semibold mb-3">Actividades Principales</h5>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-center space-x-2">
-                                            <i class="fas fa-check text-neon-green text-sm"></i>
-                                            <span class="text-gray-300">Diseño y prototipado de letreros</span>
-                                        </li>
-                                        <li class="flex items-center space-x-2">
-                                            <i class="fas fa-check text-neon-green text-sm"></i>
-                                            <span class="text-gray-300">Operación máquinas corte láser</span>
-                                        </li>
-                                        <li class="flex items-center space-x-2">
-                                            <i class="fas fa-check text-neon-green text-sm"></i>
-                                            <span class="text-gray-300">Desarrollo web con Shopify</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h5 class="text-neon-blue font-semibold mb-3">Aprendizajes Clave</h5>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-center space-x-2">
-                                            <i class="fas fa-star text-neon-blue text-sm"></i>
-                                            <span class="text-gray-300">Trabajo bajo presión</span>
-                                        </li>
-                                        <li class="flex items-center space-x-2">
-                                            <i class="fas fa-star text-neon-blue text-sm"></i>
-                                            <span class="text-gray-300">Innovación y creatividad</span>
-                                        </li>
-                                        <li class="flex items-center space-x-2">
-                                            <i class="fas fa-star text-neon-blue text-sm"></i>
-                                            <span class="text-gray-300">Liderazgo de proyectos</span>
-                                        </li>
-                                    </ul>
-                                </div>
+
+                            <div class="rounded-[1.6rem] border border-white/10 bg-black/70 p-5 text-right backdrop-blur">
+                                <p class="text-4xl font-extrabold text-white">24/7</p>
+                                <p class="mt-2 text-sm font-semibold text-gray-300">contacto rapido por WhatsApp</p>
                             </div>
                         </div>
                     </div>
@@ -407,141 +424,489 @@
         </div>
     </section>
 
-    <!-- Sección Servicios -->
-    <section id="servicios" class="py-20 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
-                    <span class="gradient-text">Servicios</span> que Ofrezco
-                </h2>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                    Soluciones tecnológicas adaptadas a las necesidades específicas de cada proyecto
+    <section id="proyectos" class="relative py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="section-enter mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                    <p class="mb-3 text-sm font-extrabold uppercase tracking-[0.28em] text-brand.gold">Portafolio</p>
+                    <h2 class="text-4xl font-extrabold text-white sm:text-5xl">
+                        Proyectos con
+                        <span class="gradient-text">personalidad propia.</span>
+                    </h2>
+                </div>
+                <p class="max-w-2xl text-lg leading-8 text-gray-300">
+                    Mantengo SGAL y Neonlegends, sumo One to One Chile y Cucuvana, y cada tarjeta ahora muestra mejor el tipo de trabajo y su objetivo.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Servicio 1 -->
-                <div class="glass rounded-2xl p-8 card-hover group text-center">
-                    <div class="w-20 h-20 rounded-2xl bg-neon-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-neon-green/30 transition-colors">
-                        <i class="fas fa-code text-neon-green text-3xl"></i>
+            <div class="grid gap-8 lg:grid-cols-2">
+                <article class="project-card glass-panel-strong section-enter rounded-[2rem] p-5 sm:p-6">
+                    <div class="project-preview preview-oto mb-6">
+                        <div class="shine-line"></div>
+                        <div class="absolute inset-x-4 top-4 flex items-center justify-between">
+                            <span class="rounded-full border border-white/15 bg-black/55 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-brand.gold">Sitio comercial</span>
+                            <img src="https://onetoonechile.com/assets/logo-4q6CTFKq.png" alt="Logo OTO" class="h-8 w-auto object-contain">
+                        </div>
+                        <div class="absolute inset-x-4 bottom-4 rounded-[1.4rem] border border-white/10 bg-black/60 p-4 backdrop-blur">
+                            <p class="text-lg font-bold text-white">OTO | Escalera Comercial</p>
+                            <p class="mt-2 text-sm leading-6 text-gray-200">Visual poderosa, jerarquia clara y una narrativa centrada en conversion.</p>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Desarrollo Web</h3>
-                    <p class="text-gray-400 mb-6">
-                        Aplicaciones web modernas y responsivas construidas con las últimas tecnologías
-                    </p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>• React & Next.js</li>
-                        <li>• Tailwind CSS</li>
-                        <li>• APIs REST & GraphQL</li>
-                    </ul>
-                </div>
 
-                <!-- Servicio 2 -->
-                <div class="glass rounded-2xl p-8 card-hover group text-center">
-                    <div class="w-20 h-20 rounded-2xl bg-neon-blue/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-neon-blue/30 transition-colors">
-                        <i class="fas fa-shopping-cart text-neon-blue text-3xl"></i>
+                    <div class="flex flex-wrap items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">One to One Chile</h3>
+                            <p class="mt-2 max-w-xl text-gray-300">Landing con enfoque comercial, contraste alto, hero impactante y llamados a la accion muy visibles.</p>
+                        </div>
+                        <span class="rounded-full border border-brand.gold/25 bg-brand.gold/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand.gold">Referencia visual</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">E-commerce</h3>
-                    <p class="text-gray-400 mb-6">
-                        Tiendas online optimizadas para conversión con integración de pagos
-                    </p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>• Shopify Development</li>
-                        <li>• MercadoPago Integration</li>
-                        <li>• Custom Themes</li>
-                    </ul>
-                </div>
 
-                <!-- Servicio 3 -->
-                <div class="glass rounded-2xl p-8 card-hover group text-center">
-                    <div class="w-20 h-20 rounded-2xl bg-neon-purple/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-neon-purple/30 transition-colors">
-                        <i class="fas fa-robot text-neon-purple text-3xl"></i>
+                    <div class="mt-6 grid gap-3 text-sm text-gray-200 sm:grid-cols-3">
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Impacto visual fuerte</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Jerarquia clara</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">CTA orientados a conversion</div>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Automatización</h3>
-                    <p class="text-gray-400 mb-6">
-                        Soluciones para optimizar procesos y reducir tareas repetitivas
-                    </p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>• Process Automation</li>
-                        <li>• Workflow Optimization</li>
-                        <li>• Custom Scripts</li>
-                    </ul>
+
+                    <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+                        <span class="text-sm font-semibold text-gray-300">Proyecto web destacado</span>
+                        <a href="https://onetoonechile.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-brand.cyan">
+                            onetoonechile.com
+                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-card glass-panel-strong section-enter rounded-[2rem] p-5 sm:p-6">
+                    <div class="project-preview preview-sgal mb-6">
+                        <div class="browser-bar">
+                            <span class="browser-dot"></span>
+                            <span class="browser-dot"></span>
+                            <span class="browser-dot"></span>
+                        </div>
+                        <div class="grid gap-4 p-5">
+                            <div class="flex items-center justify-between rounded-2xl border border-brand.cyan/20 bg-brand.cyan/8 px-4 py-3">
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-[0.18em] text-brand.cyan">GEOCONTROL</p>
+                                    <p class="mt-1 text-lg font-bold text-white">SGAL</p>
+                                </div>
+                                <div class="h-11 w-11 rounded-2xl bg-brand.cyan/15 text-center leading-[44px] text-brand.cyan">
+                                    <i class="fas fa-layer-group"></i>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-3">
+                                <div class="rounded-2xl border border-white/8 bg-white/5 p-3">
+                                    <p class="text-xs uppercase tracking-[0.16em] text-gray-400">Muestras</p>
+                                    <p class="mt-2 text-xl font-bold text-white">128</p>
+                                </div>
+                                <div class="rounded-2xl border border-white/8 bg-white/5 p-3">
+                                    <p class="text-xs uppercase tracking-[0.16em] text-gray-400">Informes</p>
+                                    <p class="mt-2 text-xl font-bold text-white">36</p>
+                                </div>
+                                <div class="rounded-2xl border border-white/8 bg-white/5 p-3">
+                                    <p class="text-xs uppercase tracking-[0.16em] text-gray-400">Estados</p>
+                                    <p class="mt-2 text-xl font-bold text-white">8</p>
+                                </div>
+                            </div>
+                            <div class="rounded-2xl border border-white/8 bg-white/5 p-4 text-sm leading-6 text-gray-200">
+                                Plataforma interna para ordenar datos, seguimiento y gestion de estudios de suelo.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">SGAL para GEOCONTROL</h3>
+                            <p class="mt-2 max-w-xl text-gray-300">Sistema de gestion para estudios de suelo, con estructura pensada para operacion interna y consulta rapida de informacion.</p>
+                        </div>
+                        <span class="rounded-full border border-brand.cyan/25 bg-brand.cyan/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand.cyan">Sistema interno</span>
+                    </div>
+
+                    <div class="mt-6 grid gap-3 text-sm text-gray-200 sm:grid-cols-3">
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">React + Vite</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Node.js + Express</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">MongoDB</div>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+                        <span class="text-sm font-semibold text-brand.lime">Desarrollo frontend y estructura de plataforma</span>
+                        <span class="text-sm font-semibold text-gray-300">Proyecto para GEOCONTROL</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative pb-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="grid gap-8 lg:grid-cols-2">
+                <article class="project-card glass-panel-strong section-enter rounded-[2rem] p-5 sm:p-6">
+                    <div class="project-preview preview-neon mb-6 p-5">
+                        <div class="flex items-start justify-between">
+                            <span class="rounded-full border border-brand.cyan/25 bg-brand.cyan/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-brand.cyan">E-commerce</span>
+                            <span class="rounded-full border border-brand.ember/25 bg-brand.ember/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-brand.ember">Shopify</span>
+                        </div>
+                        <div class="mt-10 text-center">
+                            <p class="display-font text-5xl font-extrabold tracking-[0.18em] text-brand.cyan" style="text-shadow: 0 0 8px rgba(99, 230, 255, 0.7), 0 0 28px rgba(99, 230, 255, 0.4);">NEON</p>
+                            <p class="display-font mt-2 text-4xl font-extrabold tracking-[0.26em] text-brand.gold" style="text-shadow: 0 0 8px rgba(255, 213, 74, 0.65), 0 0 24px rgba(255, 155, 69, 0.32);">LEGENDS</p>
+                        </div>
+                        <div class="mt-10 grid grid-cols-3 gap-3">
+                            <div class="rounded-2xl border border-white/8 bg-black/25 p-3 text-center text-xs font-semibold text-gray-200">Themes custom</div>
+                            <div class="rounded-2xl border border-white/8 bg-black/25 p-3 text-center text-xs font-semibold text-gray-200">Pagos integrados</div>
+                            <div class="rounded-2xl border border-white/8 bg-black/25 p-3 text-center text-xs font-semibold text-gray-200">Catalogo visual</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Neonlegends</h3>
+                            <p class="mt-2 max-w-xl text-gray-300">Tienda online para letreros luminosos, con desarrollo sobre Shopify y una identidad visual alineada al producto.</p>
+                        </div>
+                        <span class="rounded-full border border-brand.ember/25 bg-brand.ember/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand.ember">Mantener</span>
+                    </div>
+
+                    <div class="mt-6 grid gap-3 text-sm text-gray-200 sm:grid-cols-3">
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Shopify + Liquid</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">MercadoPago</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Theme custom</div>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+                        <span class="text-sm font-semibold text-gray-300">E-commerce con foco visual</span>
+                        <a href="https://www.neonlegends.cl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-brand.cyan">
+                            neonlegends.cl
+                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-card glass-panel-strong section-enter rounded-[2rem] p-5 sm:p-6">
+                    <div class="project-preview preview-cucuvana mb-6 p-5">
+                        <div class="flex items-center justify-between">
+                            <span class="rounded-full border border-brand.gold/25 bg-brand.gold/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-brand.gold">Cine latino</span>
+                            <span class="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-white">Streaming guide</span>
+                        </div>
+                        <div class="mt-8 grid grid-cols-[1.25fr_0.9fr_0.9fr] gap-3">
+                            <div class="rounded-[1.5rem] border border-white/10 bg-black/30 p-4">
+                                <div class="mb-4 flex items-center gap-3">
+                                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand.ember/15 text-brand.ember">
+                                        <i class="fas fa-film text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs uppercase tracking-[0.18em] text-gray-400">Explora</p>
+                                        <p class="text-lg font-bold text-white">Peliculas</p>
+                                    </div>
+                                </div>
+                                <div class="h-24 rounded-2xl bg-gradient-to-br from-brand.ember/30 to-brand.gold/10"></div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="h-20 rounded-[1.4rem] border border-white/10 bg-white/5"></div>
+                                <div class="h-28 rounded-[1.4rem] border border-white/10 bg-white/5"></div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="h-28 rounded-[1.4rem] border border-white/10 bg-white/5"></div>
+                                <div class="h-20 rounded-[1.4rem] border border-white/10 bg-white/5"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Cucuvana.com</h3>
+                            <p class="mt-2 max-w-xl text-gray-300">Sitio web de peliculas latino, pensado para descubrir contenido con una presentacion visual clara y atractiva.</p>
+                        </div>
+                        <span class="rounded-full border border-brand.gold/25 bg-brand.gold/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand.gold">Nuevo</span>
+                    </div>
+
+                    <div class="mt-6 grid gap-3 text-sm text-gray-200 sm:grid-cols-3">
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Catalogo visual</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Exploracion de contenido</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Enfoque en cine latino</div>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+                        <span class="text-sm font-semibold text-gray-300">Proyecto de entretenimiento digital</span>
+                        <a href="https://cucuvana.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-brand.cyan">
+                            cucuvana.com
+                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="relative py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="section-enter mb-12 max-w-3xl">
+                <p class="mb-3 text-sm font-extrabold uppercase tracking-[0.28em] text-brand.cyan">Experiencia</p>
+                <h2 class="text-4xl font-extrabold text-white sm:text-5xl">
+                    Experiencia profesional
+                    <span class="gradient-text">con foco en ejecucion.</span>
+                </h2>
+            </div>
+
+            <div class="section-enter glass-panel-strong rounded-[2rem] p-6 sm:p-8">
+                <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <div class="rounded-[1.8rem] border border-white/8 bg-white/5 p-6">
+                        <div class="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand.gold/12 text-brand.gold">
+                            <i class="fas fa-bolt text-2xl"></i>
+                        </div>
+                        <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-brand.gold">Practica profesional</p>
+                        <h3 class="mt-3 text-3xl font-bold text-white">Neonlegends Spa</h3>
+                        <p class="mt-3 text-base leading-7 text-gray-300">Participacion en entorno real de produccion, diseno, prototipado y trabajo web para una marca especializada en letreros luminosos.</p>
+                    </div>
+
+                    <div class="grid gap-6 md:grid-cols-2">
+                        <div class="rounded-[1.8rem] border border-white/8 bg-white/5 p-6">
+                            <h4 class="text-lg font-bold text-white">Actividades principales</h4>
+                            <ul class="mt-4 space-y-3 text-sm leading-7 text-gray-300">
+                                <li class="flex items-start gap-3"><i class="fas fa-check mt-1 text-brand.lime"></i><span>Diseno y prototipado de letreros.</span></li>
+                                <li class="flex items-start gap-3"><i class="fas fa-check mt-1 text-brand.lime"></i><span>Operacion de maquinaria y apoyo en fabricacion.</span></li>
+                                <li class="flex items-start gap-3"><i class="fas fa-check mt-1 text-brand.lime"></i><span>Desarrollo web y trabajo sobre Shopify.</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="rounded-[1.8rem] border border-white/8 bg-white/5 p-6">
+                            <h4 class="text-lg font-bold text-white">Aprendizajes clave</h4>
+                            <ul class="mt-4 space-y-3 text-sm leading-7 text-gray-300">
+                                <li class="flex items-start gap-3"><i class="fas fa-star mt-1 text-brand.cyan"></i><span>Trabajo bajo presion y foco en entrega.</span></li>
+                                <li class="flex items-start gap-3"><i class="fas fa-star mt-1 text-brand.cyan"></i><span>Resolucion practica y criterio visual.</span></li>
+                                <li class="flex items-start gap-3"><i class="fas fa-star mt-1 text-brand.cyan"></i><span>Liderazgo y seguimiento de tareas.</span></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 glass border-t border-gray-800/50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col lg:flex-row justify-between items-center">
-                <div class="flex items-center space-x-2 mb-6 lg:mb-0">
-                    <div class="w-3 h-3 rounded-full bg-neon-green animate-pulse"></div>
-                    <span class="text-xl font-bold gradient-text">GasparOsorio</span>
+    <section id="servicios" class="relative py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="section-enter mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                    <p class="mb-3 text-sm font-extrabold uppercase tracking-[0.28em] text-brand.ember">Servicios</p>
+                    <h2 class="text-4xl font-extrabold text-white sm:text-5xl">
+                        Lo que puedo construir
+                        <span class="gradient-text">para tu negocio.</span>
+                    </h2>
                 </div>
-                
-                <div class="flex space-x-6 mb-6 lg:mb-0">
-                    <a href="#" class="text-gray-400 hover:text-neon-green transition-colors">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-neon-purple transition-colors">
-                        <i class="fas fa-envelope text-xl"></i>
-                    </a>
+                <p class="max-w-2xl text-lg leading-8 text-gray-300">Desarrollo experiencias digitales con una combinacion de criterio visual, implementacion tecnica y foco en objetivos concretos.</p>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+                <article class="section-enter glass-panel-strong rounded-[2rem] p-7">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand.gold/10 text-brand.gold">
+                        <i class="fas fa-window-maximize text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">Sitios web y landings</h3>
+                    <p class="mt-4 leading-7 text-gray-300">Paginas corporativas y comerciales con mejor jerarquia visual, mejor primer impacto y mejor lectura del mensaje.</p>
+                </article>
+
+                <article class="section-enter glass-panel-strong rounded-[2rem] p-7">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand.cyan/10 text-brand.cyan">
+                        <i class="fas fa-cart-shopping text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">E-commerce y conversion</h3>
+                    <p class="mt-4 leading-7 text-gray-300">Tiendas online y flujos comerciales pensados para que el producto se vea mejor y el usuario llegue mas rapido a la accion.</p>
+                </article>
+
+                <article class="section-enter glass-panel-strong rounded-[2rem] p-7 md:col-span-2 xl:col-span-1">
+                    <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand.ember/10 text-brand.ember">
+                        <i class="fas fa-gears text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">Sistemas internos y automatizacion</h3>
+                    <p class="mt-4 leading-7 text-gray-300">Herramientas para ordenar procesos, centralizar informacion y reducir friccion operacional en el dia a dia.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="relative py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="section-enter glass-panel-strong rounded-[2.2rem] overflow-hidden">
+                <div class="grid lg:grid-cols-[0.9fr_1.1fr]">
+                    <div class="relative border-b border-white/8 p-8 lg:border-b-0 lg:border-r lg:p-10">
+                        <div class="hero-glow left-0 top-0 h-40 w-40 bg-brand.gold/20"></div>
+                        <p class="mb-3 text-sm font-extrabold uppercase tracking-[0.28em] text-brand.gold">Contacto</p>
+                        <h2 class="text-4xl font-extrabold text-white sm:text-5xl">
+                            Enviame un mensaje y te llevo
+                            <span class="gradient-text">directo a WhatsApp.</span>
+                        </h2>
+                        <p class="mt-5 max-w-xl text-lg leading-8 text-gray-300">Escribe lo que necesitas y el boton generara un <strong>wa.link</strong> con tu mensaje listo para enviar al numero <strong>+56 9 8699 9317</strong>.</p>
+                    </div>
+
+                    <div class="p-8 lg:p-10">
+                        <form id="whatsapp-form" class="space-y-5">
+                            <label for="whatsapp-message" class="block text-sm font-bold uppercase tracking-[0.2em] text-gray-300">Tu mensaje</label>
+                            <textarea
+                                id="whatsapp-message"
+                                name="message"
+                                class="contact-field"
+                                maxlength="1000"
+                                required
+                                placeholder="Hola Gaspar, quiero mejorar mi sitio y necesito una propuesta..."
+                            ></textarea>
+
+                            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                <p class="text-sm leading-6 text-gray-400">El mensaje se convertira en un enlace corto de wa.link antes de redirigirte.</p>
+                                <button id="whatsapp-submit" type="submit" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand.gold px-7 py-4 text-sm font-extrabold text-ink-950 disabled:cursor-not-allowed disabled:opacity-70">
+                                    <span id="whatsapp-submit-text">Enviar mensaje</span>
+                                    <i class="fab fa-whatsapp text-base"></i>
+                                </button>
+                            </div>
+
+                            <p id="form-status" class="min-h-[1.5rem] text-sm font-semibold text-brand.cyan"></p>
+                        </form>
+                    </div>
                 </div>
-                
-                <div class="text-center lg:text-right">
-                    <p class="text-gray-400">© 2025 Gaspar Osorio. Todos los derechos reservados.</p>
-                    <p class="text-gray-500 text-sm">Ingeniero en Computación e Informática - UNAB</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="glass-panel rounded-[2rem] px-6 py-6">
+                <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <span class="h-3 w-3 rounded-full bg-brand.gold"></span>
+                            <span class="display-font text-xl font-bold text-white">GasparOsorio</span>
+                        </div>
+                        <p class="mt-3 text-sm leading-6 text-gray-400">Ingeniero en Computacion e Informatica. Sitios, e-commerce y sistemas con foco visual y funcional.</p>
+                    </div>
+
+                    <div class="flex items-center gap-5 text-lg text-gray-400">
+                        <a href="#proyectos" class="transition-colors hover:text-white" aria-label="Ir a proyectos"><i class="fas fa-layer-group"></i></a>
+                        <a href="#contacto" class="transition-colors hover:text-brand.lime" aria-label="Ir a contacto"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#inicio" class="transition-colors hover:text-brand.cyan" aria-label="Volver al inicio"><i class="fas fa-arrow-up"></i></a>
+                    </div>
+
+                    <div class="text-sm text-gray-500">
+                        <p>&copy; <span id="current-year">2026</span> Gaspar Osorio.</p>
+                        <p>UNAB</p>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <script>
-        // Barra de progreso de scroll
-        window.addEventListener('scroll', () => {
+        const progressBar = document.getElementById('progress-bar');
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const whatsappForm = document.getElementById('whatsapp-form');
+        const whatsappMessage = document.getElementById('whatsapp-message');
+        const whatsappSubmit = document.getElementById('whatsapp-submit');
+        const whatsappSubmitText = document.getElementById('whatsapp-submit-text');
+        const formStatus = document.getElementById('form-status');
+        const currentYear = document.getElementById('current-year');
+
+        const WALINK_ENDPOINT = 'https://api.wa.link/v1/newlink';
+        const WALINK_API_KEY = '3SPdHlx5Kn8Wv3PYFwg5L6YAxBmFi3D06a8PDZvG';
+        const WHATSAPP_COUNTRY_CODE = '56';
+        const WHATSAPP_PHONE = '986999317';
+
+        function updateProgressBar() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progress-bar').style.width = scrolled + '%';
-        });
+            progressBar.style.width = (height > 0 ? (winScroll / height) * 100 : 0) + '%';
+        }
 
-        // Animación de entrada de secciones
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        window.addEventListener('scroll', updateProgressBar);
+        updateProgressBar();
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, observerOptions);
-
-        // Observar todas las secciones
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('section-enter');
-            observer.observe(section);
+        }, {
+            threshold: 0.14,
+            rootMargin: '0px 0px -40px 0px'
         });
 
-        // Smooth scroll para navegación
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        document.querySelectorAll('.section-enter').forEach((element) => {
+            observer.observe(element);
+        });
+
+        document.querySelectorAll('section').forEach((section) => {
+            if (!section.classList.contains('section-enter')) {
+                section.classList.add('section-enter');
+                observer.observe(section);
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', function (event) {
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (!target) return;
+                event.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileMenu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+
+        function buildWhatsAppFallbackUrl(message) {
+            return 'https://wa.me/' + WHATSAPP_COUNTRY_CODE + WHATSAPP_PHONE + '?text=' + encodeURIComponent(message);
+        }
+
+        async function createWaLink(message) {
+            const response = await fetch(WALINK_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': WALINK_API_KEY
+                },
+                body: JSON.stringify({
+                    phone: WHATSAPP_PHONE,
+                    countryCode: WHATSAPP_COUNTRY_CODE,
+                    message
+                })
+            });
+
+            const data = await response.json();
+            if (!response.ok || data.status !== 'success' || !data.data || !data.data.shortUrl) {
+                throw new Error('Walink no disponible');
+            }
+            return data.data.shortUrl;
+        }
+
+        if (whatsappForm) {
+            whatsappForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const message = whatsappMessage.value.trim();
+
+                if (!message) {
+                    formStatus.textContent = 'Escribe un mensaje antes de continuar.';
+                    return;
+                }
+
+                whatsappSubmit.disabled = true;
+                whatsappSubmitText.textContent = 'Generando wa.link...';
+                formStatus.textContent = 'Preparando tu enlace de WhatsApp...';
+
+                try {
+                    const shortUrl = await createWaLink(message);
+                    window.location.href = shortUrl;
+                } catch (error) {
+                    formStatus.textContent = 'No pude generar wa.link. Te redirijo por el enlace directo de WhatsApp.';
+                    window.location.href = buildWhatsAppFallbackUrl(message);
+                } finally {
+                    whatsappSubmit.disabled = false;
+                    whatsappSubmitText.textContent = 'Enviar mensaje';
+                }
+            });
+        }
+
+        if (currentYear) {
+            currentYear.textContent = new Date().getFullYear();
+        }
     </script>
 </body>
 </html>
