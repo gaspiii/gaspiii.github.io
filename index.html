@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaspar Osorio | Desarrollo Web y Plataformas</title>
+    <title>Desarrollo Web y Diseño gráfico</title>
     <meta name="description" content="Portafolio de Gaspar Osorio: desarrollo web, e-commerce, sistemas internos y experiencias digitales orientadas a resultado.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/png" href="https://i.imgur.com/uMNvWf6.png">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
     <script>
@@ -118,9 +119,113 @@
         }
 
         .hero-backdrop {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
             background:
-                linear-gradient(90deg, rgba(5, 5, 5, 0.88) 0%, rgba(5, 5, 5, 0.56) 46%, rgba(5, 5, 5, 0.92) 100%),
-                url('https://onetoonechile.com/assets/fondo-1WQN0_EA.png') center/cover no-repeat;
+                radial-gradient(circle at 16% 20%, rgba(255, 213, 74, 0.1), transparent 18%),
+                radial-gradient(circle at 78% 22%, rgba(99, 230, 255, 0.16), transparent 24%),
+                radial-gradient(circle at 72% 66%, rgba(99, 230, 255, 0.12), transparent 18%),
+                linear-gradient(135deg, rgba(2, 3, 7, 0.99) 0%, rgba(5, 10, 18, 0.98) 42%, rgba(3, 8, 14, 0.96) 68%, rgba(2, 3, 6, 0.99) 100%);
+        }
+
+        .hero-backdrop::before,
+        .hero-backdrop::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .hero-backdrop::before {
+            inset: 0;
+            background:
+                radial-gradient(circle at 68% 72%, rgba(99, 230, 255, 0.16), transparent 18%),
+                linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(8, 13, 22, 0.14) 56%, rgba(4, 7, 12, 0.42) 100%);
+            opacity: 0.78;
+            animation: hero-haze-drift 20s ease-in-out infinite;
+        }
+
+        .hero-backdrop::after {
+            background:
+                linear-gradient(180deg, rgba(99, 230, 255, 0) 0%, rgba(99, 230, 255, 0.06) 62%, rgba(255, 213, 74, 0.03) 82%, rgba(0, 0, 0, 0) 100%),
+                linear-gradient(90deg, rgba(99, 230, 255, 0) 48%, rgba(99, 230, 255, 0.08) 62%, rgba(255, 213, 74, 0.05) 78%, rgba(0, 0, 0, 0) 100%);
+            mix-blend-mode: screen;
+            opacity: 0.6;
+            animation: hero-aura-shift 18s ease-in-out infinite;
+        }
+
+        .hero-illustration {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-illustration svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+        }
+
+        .hero-illustration .scene-haze,
+        .hero-illustration .scene-skyline,
+        .hero-illustration .scene-signal,
+        .hero-illustration .scene-reflection {
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        .hero-illustration .scene-haze {
+            animation: hero-haze-drift 20s ease-in-out infinite;
+        }
+
+        .hero-illustration .scene-skyline {
+            animation: hero-skyline-float 16s ease-in-out infinite;
+        }
+
+        .hero-illustration .scene-signal {
+            animation: hero-signal-pulse 8s ease-in-out infinite;
+        }
+
+        .hero-illustration .scene-reflection {
+            animation: hero-reflection-drift 14s ease-in-out infinite;
+        }
+
+        .hero-illustration .scene-node {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: hero-node-pulse 5.4s ease-in-out infinite;
+        }
+
+        .hero-illustration .scene-node-2 {
+            animation-delay: -1.6s;
+        }
+
+        .hero-illustration .scene-node-3 {
+            animation-delay: -3.2s;
+        }
+
+        .hero-illustration .scene-node-4 {
+            animation-delay: -2.3s;
+        }
+
+        .hero-illustration .scene-window {
+            animation: hero-data-flicker 4.8s steps(2, end) infinite;
+        }
+
+        .hero-illustration .scene-window-2 {
+            animation-delay: -1.6s;
+        }
+
+        .hero-illustration .scene-window-3 {
+            animation-delay: -3.1s;
+        }
+
+        .logo-nav {
+            height: 32px;
+            width: auto;
+            background: url('https://i.imgur.com/5xrkga6.png') center/contain no-repeat;
         }
 
         .hero-glow {
@@ -148,10 +253,259 @@
             border-radius: 30px;
             min-height: 540px;
             background:
-                linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.68) 100%),
-                url('https://onetoonechile.com/assets/hero-CfTNcE7O.png') center/cover no-repeat;
+                radial-gradient(circle at top, rgba(99, 230, 255, 0.18), transparent 34%),
+                radial-gradient(circle at bottom, rgba(255, 213, 74, 0.16), transparent 38%),
+                linear-gradient(180deg, rgba(7, 8, 12, 0.92) 0%, rgba(5, 5, 7, 0.98) 100%);
             border: 1px solid rgba(255, 255, 255, 0.12);
             box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+        }
+
+        .hero-shot::before {
+            content: '';
+            position: absolute;
+            inset: 1.2rem;
+            border-radius: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+        }
+
+        .portrait-stage {
+            position: relative;
+            display: grid;
+            min-height: 100%;
+            place-items: center;
+            padding: 2.5rem;
+        }
+
+        .portrait-wrap {
+            position: relative;
+            width: min(100%, 380px);
+            aspect-ratio: 1;
+            animation: portrait-drift 8.5s ease-in-out infinite;
+        }
+
+        .portrait-halo {
+            position: absolute;
+            inset: -10%;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(255, 213, 74, 0.42), transparent 34%),
+                radial-gradient(circle at 70% 68%, rgba(99, 230, 255, 0.3), transparent 38%);
+            filter: blur(24px);
+            opacity: 0.85;
+            animation: halo-breathe 9s ease-in-out infinite;
+        }
+
+        .portrait-orbit {
+            position: absolute;
+            inset: 4%;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            animation: orbit-spin 22s linear infinite;
+        }
+
+        .portrait-orbit::before,
+        .portrait-orbit::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .portrait-orbit::before {
+            top: 10%;
+            right: 8%;
+            width: 14px;
+            height: 14px;
+            background: rgba(255, 213, 74, 0.95);
+            box-shadow: 0 0 22px rgba(255, 213, 74, 0.5);
+        }
+
+        .portrait-orbit::after {
+            bottom: 14%;
+            left: 10%;
+            width: 10px;
+            height: 10px;
+            background: rgba(99, 230, 255, 0.92);
+            box-shadow: 0 0 18px rgba(99, 230, 255, 0.48);
+        }
+
+        .portrait-frame {
+            position: absolute;
+            inset: 12%;
+            padding: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 213, 74, 0.85), rgba(99, 230, 255, 0.72));
+            box-shadow:
+                0 24px 60px rgba(0, 0, 0, 0.34),
+                0 0 40px rgba(99, 230, 255, 0.14);
+        }
+
+        .portrait-photo {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(6, 7, 10, 0.92);
+            animation: portrait-breathe 8.5s ease-in-out infinite;
+        }
+
+        .portrait-badge {
+            position: absolute;
+            left: 50%;
+            bottom: 10%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 80px;
+            min-height: 30px;
+            padding: 0.35rem 1rem;
+            border-radius: 0.75rem;
+           
+            background: linear-gradient(135deg, rgba(243, 121, 134, 0.99), #d64b57);
+            color: #fff6f6;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+           
+        }
+
+        .portrait-card {
+            position: absolute;
+            left: 1.4rem;
+            right: 1.4rem;
+            bottom: 1.4rem;
+            border-radius: 1.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(6, 7, 11, 0.7);
+            backdrop-filter: blur(16px);
+            padding: 1rem 1.15rem;
+        }
+
+        .portrait-chip {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.4rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(6, 7, 11, 0.62);
+            backdrop-filter: blur(14px);
+            padding: 0.8rem 1rem;
+        }
+
+        @keyframes portrait-drift {
+            0%, 100% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(0, -12px, 0);
+            }
+        }
+
+        @keyframes portrait-breathe {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.018);
+            }
+        }
+
+        @keyframes halo-breathe {
+            0%, 100% {
+                opacity: 0.74;
+                transform: scale(0.98);
+            }
+            50% {
+                opacity: 0.96;
+                transform: scale(1.03);
+            }
+        }
+
+        @keyframes orbit-spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes hero-haze-drift {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 0.62;
+            }
+            50% {
+                transform: translate3d(-1.2%, 1%, 0) scale(1.04);
+                opacity: 0.84;
+            }
+        }
+
+        @keyframes hero-aura-shift {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 0.72;
+            }
+            50% {
+                transform: translate3d(-1.5%, 1.2%, 0) scale(1.06);
+                opacity: 0.92;
+            }
+        }
+
+        @keyframes hero-skyline-float {
+            0%, 100% {
+                transform: translate3d(0, 0, 0);
+                opacity: 0.82;
+            }
+            50% {
+                transform: translate3d(0, -8px, 0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes hero-signal-pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.56;
+            }
+            50% {
+                transform: scale(1.04);
+                opacity: 1;
+            }
+        }
+
+        @keyframes hero-reflection-drift {
+            0%, 100% {
+                transform: translate3d(0, 0, 0);
+                opacity: 0.22;
+            }
+            50% {
+                transform: translate3d(10px, 0, 0);
+                opacity: 0.36;
+            }
+        }
+
+        @keyframes hero-node-pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.68;
+            }
+            50% {
+                transform: scale(1.18);
+                opacity: 1;
+            }
+        }
+
+        @keyframes hero-data-flicker {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.85;
+            }
         }
 
         .project-card {
@@ -176,7 +530,7 @@
         .preview-oto {
             background:
                 linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0.56) 100%),
-                url('https://onetoonechile.com/assets/hero-CfTNcE7O.png') center/cover no-repeat;
+                url('https://i.imgur.com/SvkM2Ow.png') center/cover no-repeat;
         }
 
         .preview-sgal {
@@ -194,9 +548,7 @@
 
         .preview-cucuvana {
             background:
-                radial-gradient(circle at top right, rgba(255, 155, 69, 0.24), transparent 28%),
-                radial-gradient(circle at bottom left, rgba(255, 213, 74, 0.18), transparent 22%),
-                linear-gradient(145deg, #18110e 0%, #0e0d10 100%);
+                url('https://i.imgur.com/BPCM4jG.png' ) center/cover no-repeat;
         }
 
         .browser-bar {
@@ -235,26 +587,152 @@
             transform: translateY(0);
         }
 
+        .contact-composer {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .contact-composer-frame {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: visible;
+            z-index: 0;
+        }
+
+        .contact-composer-path {
+            fill: url(#contact-composer-fill);
+            stroke: rgba(255, 255, 255, 0.11);
+            stroke-width: 1.5;
+            vector-effect: non-scaling-stroke;
+            filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.24));
+            transition: stroke 0.22s ease;
+        }
+
+        .contact-composer-accent {
+            fill: none;
+            stroke: url(#contact-composer-accent-gradient);
+            stroke-width: 1.1;
+            stroke-linecap: round;
+            vector-effect: non-scaling-stroke;
+            opacity: 0.16;
+            transition: opacity 0.22s ease;
+        }
+
+        .contact-composer:focus-within .contact-composer-path {
+            stroke: rgba(99, 230, 255, 0.44);
+        }
+
+        .contact-composer:focus-within .contact-composer-accent {
+            opacity: 0.42;
+        }
+
         .contact-field {
             width: 100%;
-            min-height: 180px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.04);
+            height: 220px;
+            min-height: 220px;
+            position: relative;
+            display: block;
+            z-index: 1;
+            border: none;
+            background: transparent;
             color: #ffffff;
-            padding: 1rem 1.1rem;
+            padding: 1.25rem 1.45rem 7rem 1.45rem;
             font: inherit;
-            resize: vertical;
+            line-height: 1.58;
+            resize: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(99, 230, 255, 0.55) rgba(255, 255, 255, 0.05);
+            scrollbar-gutter: stable;
         }
 
         .contact-field:focus {
             outline: none;
-            border-color: rgba(99, 230, 255, 0.56);
-            box-shadow: 0 0 0 4px rgba(99, 230, 255, 0.12);
         }
 
         .contact-field::placeholder {
             color: rgba(255, 255, 255, 0.45);
+        }
+
+        .contact-field::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .contact-field::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 999px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .contact-field::-webkit-scrollbar-thumb {
+            border-radius: 999px;
+            border: 2px solid transparent;
+            background:
+                linear-gradient(180deg, rgba(99, 230, 255, 0.74), rgba(255, 213, 74, 0.5)) padding-box,
+                linear-gradient(180deg, rgba(99, 230, 255, 0.12), rgba(255, 213, 74, 0.08)) border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .contact-field::-webkit-scrollbar-thumb:hover {
+            background:
+                linear-gradient(180deg, rgba(99, 230, 255, 0.9), rgba(255, 213, 74, 0.68)) padding-box,
+                linear-gradient(180deg, rgba(99, 230, 255, 0.16), rgba(255, 213, 74, 0.12)) border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .contact-field::-webkit-scrollbar-corner,
+        .contact-field::-webkit-scrollbar-button {
+            display: none;
+            width: 0;
+            height: 0;
+            background: transparent;
+        }
+
+        .contact-submit {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            min-width: 220px;
+            border-radius: 1.35rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: linear-gradient(135deg, #22c55e 0%, #34d56a 100%);
+            color: #07140b;
+            padding: 1rem 1.35rem;
+            font-size: 0.95rem;
+            font-weight: 800;
+            box-shadow:
+                0 0 0 10px rgba(25, 25, 33, 0.98),
+                0 18px 36px rgba(0, 0, 0, 0.34),
+                0 8px 24px rgba(34, 197, 94, 0.22);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+            z-index: 2;
+            white-space: nowrap;
+            max-width: calc(100% - 1.1rem);
+        }
+
+        .contact-submit:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 0 0 10px rgba(25, 25, 33, 0.98),
+                0 22px 42px rgba(0, 0, 0, 0.38),
+                0 10px 28px rgba(34, 197, 94, 0.28);
+        }
+
+        .contact-submit:disabled {
+            cursor: not-allowed;
+            opacity: 0.74;
+            filter: saturate(0.8);
         }
 
         .nav-link {
@@ -277,20 +755,117 @@
             transform: scaleX(1);
         }
 
+        .mobile-menu-panel {
+            margin-top: 0.85rem;
+        }
+
+        .mobile-menu-card {
+            border-radius: 2rem;
+            background:
+                radial-gradient(circle at top right, rgba(99, 230, 255, 0.06), transparent 28%),
+                linear-gradient(180deg, rgba(20, 21, 27, 0.98), rgba(13, 14, 19, 0.995));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            box-shadow:
+                0 28px 70px rgba(0, 0, 0, 0.34),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            overflow: hidden;
+        }
+
+        .mobile-menu-link {
+            display: flex;
+            align-items: center;
+            min-height: 3.5rem;
+            padding: 0 1rem;
+            border-radius: 1.1rem;
+            color: #f3f4f6;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .mobile-menu-link:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            transform: translateX(2px);
+        }
+
+        .mobile-menu-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3.4rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #22c55e 0%, #34d56a 100%);
+            color: #08130b;
+            font-size: 1rem;
+            font-weight: 800;
+            padding: 0 1.1rem;
+            box-shadow:
+                0 14px 34px rgba(0, 0, 0, 0.26),
+                0 8px 18px rgba(34, 197, 94, 0.16);
+        }
+
+        .menu-toggle-icon {
+            transition: transform 0.22s ease;
+        }
+
+        .menu-toggle-open .menu-toggle-icon {
+            transform: rotate(90deg);
+        }
+
         @media (max-width: 1024px) {
             .hero-shot {
                 min-height: 420px;
+            }
+
+            .hero-illustration svg {
+                opacity: 0.78;
             }
         }
 
         @media (max-width: 640px) {
             .hero-shot {
-                min-height: 360px;
+                min-height: 430px;
+            }
+
+            .hero-illustration svg {
+                opacity: 0.62;
+            }
+
+            .portrait-stage {
+                padding: 2rem 1.25rem;
+            }
+
+            .portrait-wrap {
+                width: min(100%, 260px);
+            }
+
+           
+            .portrait-card,
+            .portrait-chip {
+                left: 1rem;
+                right: 1rem;
+            }
+
+            .portrait-chip {
+                right: auto;
+            }
+
+            .contact-field {
+                height: 250px;
+                min-height: 250px;
+                padding: 1.15rem 1.2rem 6.8rem 1.2rem;
+            }
+
+            .contact-submit {
+                min-width: 0;
+                max-width: calc(100% - 1.2rem);
             }
         }
     </style>
 </head>
-<body class="soft-grid">
+<body class="soft-grid  bg-neutral-900">
     <div class="progress-bar" id="progress-bar"></div>
 
     <nav class="fixed inset-x-0 top-0 z-50">
@@ -298,8 +873,8 @@
             <div class="glass-panel rounded-full px-5 py-3">
                 <div class="flex items-center justify-between gap-4">
                     <a href="#inicio" class="flex items-center gap-3">
-                        <span class="h-3 w-3 animate-pulse rounded-full bg-brand.gold"></span>
-                        <span class="display-font text-lg font-semibold text-white">GasparOsorio</span>
+                       
+                        <span class="logo-nav h-18 w-20"></span>
                     </a>
 
                     <div class="hidden items-center gap-7 md:flex">
@@ -311,24 +886,26 @@
                     </div>
 
                     <div class="hidden md:block">
-                        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full bg-brand.gold px-5 py-2.5 text-sm font-bold text-ink-950 hover:scale-105">
-                            Hablar por WhatsApp
+                        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full bg-green-500 px-5 py-2.5 text-sm font-bold text-ink-950 hover:scale-105">
+                            Contactar
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
 
-                    <button id="menu-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white md:hidden" type="button" aria-label="Abrir menu">
-                        <i class="fas fa-bars"></i>
+                    <button id="menu-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white md:hidden" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="fas fa-bars menu-toggle-icon"></i>
                     </button>
                 </div>
+            </div>
 
-                <div id="mobile-menu" class="hidden border-t border-white/10 pt-4 md:hidden">
-                    <div class="flex flex-col gap-3 pb-2">
-                        <a href="#inicio" class="rounded-2xl px-3 py-2 text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-white">Inicio</a>
-                        <a href="#proyectos" class="rounded-2xl px-3 py-2 text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-white">Proyectos</a>
-                        <a href="#experiencia" class="rounded-2xl px-3 py-2 text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-white">Experiencia</a>
-                        <a href="#servicios" class="rounded-2xl px-3 py-2 text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-white">Servicios</a>
-                        <a href="#contacto" class="rounded-2xl bg-brand.gold px-3 py-2 text-sm font-bold text-ink-950">Hablar por WhatsApp</a>
+            <div id="mobile-menu" class="mobile-menu-panel hidden md:hidden">
+                <div class="mobile-menu-card px-4 py-4">
+                    <div class="flex flex-col gap-2">
+                        <a href="#inicio" class="mobile-menu-link">Inicio</a>
+                        <a href="#proyectos" class="mobile-menu-link">Proyectos</a>
+                        <a href="#experiencia" class="mobile-menu-link">Experiencia</a>
+                        <a href="#servicios" class="mobile-menu-link">Servicios</a>
+                        <a href="#contacto" class="mobile-menu-cta mt-2">Hablar por WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -337,6 +914,88 @@
 
     <section id="inicio" class="relative overflow-hidden pt-28">
         <div class="hero-backdrop absolute inset-0"></div>
+        <div class="hero-illustration" aria-hidden="true">
+            <svg viewBox="0 0 1600 920" preserveAspectRatio="xMidYMid slice" role="presentation">
+                <defs>
+                    <linearGradient id="hero-city-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#15263d" stop-opacity="0.94"></stop>
+                        <stop offset="100%" stop-color="#060b12" stop-opacity="0.98"></stop>
+                    </linearGradient>
+                    <linearGradient id="hero-city-edge" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#63e6ff" stop-opacity="0.08"></stop>
+                        <stop offset="55%" stop-color="#63e6ff" stop-opacity="0.48"></stop>
+                        <stop offset="100%" stop-color="#ffd54a" stop-opacity="0.24"></stop>
+                    </linearGradient>
+                    <linearGradient id="hero-neon-line" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#63e6ff" stop-opacity="0"></stop>
+                        <stop offset="46%" stop-color="#63e6ff" stop-opacity="0.72"></stop>
+                        <stop offset="100%" stop-color="#ffd54a" stop-opacity="0.3"></stop>
+                    </linearGradient>
+                    <radialGradient id="hero-city-haze" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#63e6ff" stop-opacity="0.24"></stop>
+                        <stop offset="58%" stop-color="#63e6ff" stop-opacity="0.08"></stop>
+                        <stop offset="100%" stop-color="#63e6ff" stop-opacity="0"></stop>
+                    </radialGradient>
+                    <radialGradient id="hero-sunset-haze" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#ffd54a" stop-opacity="0.14"></stop>
+                        <stop offset="100%" stop-color="#ffd54a" stop-opacity="0"></stop>
+                    </radialGradient>
+                    <filter id="hero-soft-blur" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="22"></feGaussianBlur>
+                    </filter>
+                </defs>
+
+                <g class="scene-haze">
+                    <ellipse cx="1180" cy="640" rx="320" ry="120" fill="url(#hero-city-haze)" opacity="0.56" filter="url(#hero-soft-blur)"></ellipse>
+                    <ellipse cx="1284" cy="624" rx="210" ry="86" fill="url(#hero-sunset-haze)" opacity="0.3" filter="url(#hero-soft-blur)"></ellipse>
+                    <path d="M720 690C920 654 1140 654 1580 676" fill="none" stroke="url(#hero-neon-line)" stroke-width="1.4" stroke-linecap="round" opacity="0.36"></path>
+                </g>
+
+                <g class="scene-reflection">
+                    <path d="M874 742H1528" stroke="#63e6ff" stroke-opacity="0.16" stroke-width="1.1" stroke-linecap="round"></path>
+                    <path d="M948 770H1488" stroke="#63e6ff" stroke-opacity="0.1" stroke-width="1" stroke-linecap="round"></path>
+                </g>
+
+                <g class="scene-signal">
+                    <rect x="1118" y="348" width="10" height="312" rx="5" fill="#63e6ff" fill-opacity="0.12" filter="url(#hero-soft-blur)"></rect>
+                    <rect x="1332" y="300" width="12" height="360" rx="6" fill="#ffd54a" fill-opacity="0.08" filter="url(#hero-soft-blur)"></rect>
+                </g>
+
+                <g class="scene-skyline">
+                    <path d="M760 690H1570" stroke="url(#hero-city-edge)" stroke-width="1.2" stroke-linecap="round" opacity="0.58"></path>
+                    <rect x="820" y="570" width="94" height="120" rx="8" fill="url(#hero-city-fill)" stroke="url(#hero-city-edge)" stroke-opacity="0.18"></rect>
+                    <rect x="910" y="506" width="96" height="184" rx="8" fill="url(#hero-city-fill)" stroke="url(#hero-city-edge)" stroke-opacity="0.22"></rect>
+                    <path d="M1028 690V434h88v56h22v200Z" fill="url(#hero-city-fill)" stroke="url(#hero-city-edge)" stroke-opacity="0.28"></path>
+                    <rect x="1140" y="486" width="84" height="204" rx="8" fill="url(#hero-city-fill)" stroke="url(#hero-city-edge)" stroke-opacity="0.24"></rect>
+                    <path d="M1248 690V396h112v44h18v250Z" fill="url(#hero-city-fill)" stroke="url(#hero-city-edge)" stroke-opacity="0.3"></path>
+                    <rect x="1388" y="530" width="92" height="160" rx="8" fill="url(#hero-city-fill)" stroke="url(#hero-city-edge)" stroke-opacity="0.18"></rect>
+                    <rect x="1488" y="460" width="56" height="230" rx="8" fill="url(#hero-city-fill)" stroke="url(#hero-city-edge)" stroke-opacity="0.22"></rect>
+                    <path d="M1068 434V392" stroke="#63e6ff" stroke-opacity="0.36" stroke-width="2" stroke-linecap="round"></path>
+                    <path d="M1304 396V340" stroke="#ffd54a" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round"></path>
+                    <path d="M860 612h38" stroke="url(#hero-neon-line)" stroke-width="2.4" stroke-linecap="round" opacity="0.48"></path>
+                    <path d="M936 546h42" stroke="url(#hero-neon-line)" stroke-width="2.4" stroke-linecap="round" opacity="0.54"></path>
+                    <path d="M1162 530h36" stroke="url(#hero-neon-line)" stroke-width="2.4" stroke-linecap="round" opacity="0.48"></path>
+                    <path d="M1272 446h48" stroke="url(#hero-neon-line)" stroke-width="2.6" stroke-linecap="round" opacity="0.6"></path>
+                    <path d="M1412 566h34" stroke="url(#hero-neon-line)" stroke-width="2.2" stroke-linecap="round" opacity="0.42"></path>
+                </g>
+
+                <g opacity="0.82">
+                    <rect class="scene-window" x="846" y="596" width="6" height="6" rx="3" fill="#63e6ff"></rect>
+                    <rect class="scene-window scene-window-2" x="874" y="596" width="6" height="6" rx="3" fill="#f8f7f2"></rect>
+                    <rect class="scene-window scene-window-3" x="952" y="556" width="6" height="6" rx="3" fill="#63e6ff"></rect>
+                    <rect class="scene-window" x="980" y="556" width="6" height="6" rx="3" fill="#ffd54a"></rect>
+                    <rect class="scene-window scene-window-2" x="1072" y="520" width="6" height="6" rx="3" fill="#63e6ff"></rect>
+                    <rect class="scene-window scene-window-3" x="1168" y="552" width="6" height="6" rx="3" fill="#f8f7f2"></rect>
+                    <rect class="scene-window" x="1290" y="472" width="6" height="6" rx="3" fill="#63e6ff"></rect>
+                    <rect class="scene-window scene-window-2" x="1320" y="472" width="6" height="6" rx="3" fill="#ffd54a"></rect>
+                    <rect class="scene-window scene-window-3" x="1512" y="498" width="6" height="6" rx="3" fill="#63e6ff"></rect>
+                </g>
+
+                <circle class="scene-node scene-node-1" cx="1068" cy="392" r="5" fill="#63e6ff"></circle>
+                <circle class="scene-node scene-node-2" cx="1304" cy="340" r="5" fill="#ffd54a"></circle>
+                <circle class="scene-node scene-node-3" cx="1220" cy="690" r="4" fill="#63e6ff" fill-opacity="0.7"></circle>
+            </svg>
+        </div>
         <div class="hero-glow left-[-5rem] top-28 h-64 w-64 bg-brand.gold/20"></div>
         <div class="hero-glow bottom-10 right-0 h-72 w-72 bg-brand.cyan/20"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-ink-950"></div>
@@ -345,26 +1004,26 @@
             <div class="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
                 <div class="section-enter space-y-8">
                     <div class="pill">
-                        <span class="h-2.5 w-2.5 rounded-full bg-brand.lime"></span>
+                    
                         <span class="text-sm font-semibold">Disponible para proyectos web, e-commerce y sistemas internos</span>
                     </div>
 
                     <div class="space-y-6">
-                        <h1 class="max-w-4xl text-5xl font-extrabold leading-[1.02] text-white sm:text-6xl lg:text-7xl">
+                        <h1 class="max-w-5xl text-4xl font-extrabold leading-[1.02] text-white sm:text-5xl lg:text-6xl">
                             Desarrollo sitios que
                             <span class="gradient-text block">se ven fuertes y convierten mejor.</span>
                         </h1>
 
                         <p class="max-w-2xl text-lg leading-8 text-gray-200 sm:text-xl">
-                            Soy Gaspar Osorio, Ingeniero en Computacion e Informatica. Diseno y construyo experiencias digitales con foco en claridad visual, conversion y estructura tecnica solida.
+                            Soy Gaspar Osorio, Ingeniero en Computación e Informática. Diseño y construyo experiencias digitales con foco en claridad visual, conversión y estructura técnica sólida.
                         </p>
                     </div>
 
-                    <div class="flex flex-wrap gap-3">
-                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-100">Sitios corporativos</span>
-                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-100">Landing pages de alto impacto</span>
-                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-100">E-commerce</span>
-                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-gray-100">Plataformas internas</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-gray-100">Sitios corporativos</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-gray-100">Landing pages de alto impacto</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-gray-100">E-commerce</span>
+                        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-gray-100">Plataformas internas</span>
                     </div>
 
                     <div class="flex flex-wrap gap-4">
@@ -378,54 +1037,27 @@
                         </a>
                     </div>
 
-                    <div class="grid gap-4 sm:grid-cols-3">
-                        <div class="glass-panel rounded-3xl p-4">
-                            <p class="text-3xl font-extrabold text-white">4</p>
-                            <p class="mt-1 text-sm text-gray-300">proyectos destacados visibles</p>
-                        </div>
-                        <div class="glass-panel rounded-3xl p-4">
-                            <p class="text-3xl font-extrabold text-white">1</p>
-                            <p class="mt-1 text-sm text-gray-300">formulario directo a wa.link</p>
-                        </div>
-                        <div class="glass-panel rounded-3xl p-4">
-                            <p class="text-3xl font-extrabold text-white">100%</p>
-                            <p class="mt-1 text-sm text-gray-300">orientado a impacto visual y conversion</p>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <div class="section-enter relative">
-                    <div class="hero-shot animate-glow">
-                        <div class="absolute left-5 top-5 rounded-full border border-white/15 bg-black/45 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-brand.gold">Caso destacado</div>
-
-                        <div class="absolute right-5 top-5 w-40 rounded-3xl border border-white/12 bg-black/70 p-4 text-white shadow-2xl">
-                            <p class="text-4xl font-extrabold leading-none">+150%</p>
-                            <p class="mt-2 text-sm font-semibold text-gray-200">enfoque visual comercial</p>
-                        </div>
-
-                        <div class="absolute bottom-5 left-5 right-5 grid gap-4 sm:grid-cols-[1fr_auto]">
-                            <div class="rounded-[1.6rem] border border-white/10 bg-black/70 p-5 backdrop-blur">
-                                <div class="mb-3 flex items-center gap-3">
-                                    <img src="https://onetoonechile.com/assets/logo-4q6CTFKq.png" alt="Logo One to One Chile" class="h-9 w-auto object-contain">
-                                    <span class="rounded-full border border-brand.gold/30 bg-brand.gold/10 px-3 py-1 text-xs font-bold text-brand.gold">One to One Chile</span>
+                        <div class="portrait-stage">
+                            <div class="portrait-wrap">
+                                <div class="portrait-halo"></div>
+                                <div class="portrait-orbit"></div>
+                                <div class="portrait-frame">
+                                    <img src="https://i.imgur.com/lGMyjwj.jpeg" alt="Foto de Gaspar Osorio" class="portrait-photo">
                                 </div>
-                                <h2 class="display-font text-2xl font-bold text-white">Referencia visual fuerte, contraste alto y CTA claros.</h2>
-                                <p class="mt-3 max-w-xl text-sm leading-6 text-gray-200">Tome esa energia como guia para reforzar el portafolio y darle una presentacion mas premium y comercial.</p>
-                            </div>
-
-                            <div class="rounded-[1.6rem] border border-white/10 bg-black/70 p-5 text-right backdrop-blur">
-                                <p class="text-4xl font-extrabold text-white">24/7</p>
-                                <p class="mt-2 text-sm font-semibold text-gray-300">contacto rapido por WhatsApp</p>
+                                <div class="portrait-badge">UNAB</div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="proyectos" class="relative py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <section id="proyectos" class="  relative py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6  ">
             <div class="section-enter mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                 <div class="max-w-3xl">
                     <p class="mb-3 text-sm font-extrabold uppercase tracking-[0.28em] text-brand.gold">Portafolio</p>
@@ -434,9 +1066,7 @@
                         <span class="gradient-text">personalidad propia.</span>
                     </h2>
                 </div>
-                <p class="max-w-2xl text-lg leading-8 text-gray-300">
-                    Mantengo SGAL y Neonlegends, sumo One to One Chile y Cucuvana, y cada tarjeta ahora muestra mejor el tipo de trabajo y su objetivo.
-                </p>
+            
             </div>
 
             <div class="grid gap-8 lg:grid-cols-2">
@@ -445,26 +1075,24 @@
                         <div class="shine-line"></div>
                         <div class="absolute inset-x-4 top-4 flex items-center justify-between">
                             <span class="rounded-full border border-white/15 bg-black/55 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-brand.gold">Sitio comercial</span>
-                            <img src="https://onetoonechile.com/assets/logo-4q6CTFKq.png" alt="Logo OTO" class="h-8 w-auto object-contain">
+                            
                         </div>
-                        <div class="absolute inset-x-4 bottom-4 rounded-[1.4rem] border border-white/10 bg-black/60 p-4 backdrop-blur">
-                            <p class="text-lg font-bold text-white">OTO | Escalera Comercial</p>
-                            <p class="mt-2 text-sm leading-6 text-gray-200">Visual poderosa, jerarquia clara y una narrativa centrada en conversion.</p>
-                        </div>
+                        
                     </div>
 
-                    <div class="flex flex-wrap items-start justify-between gap-4">
+                    <div class="flex flex-wrap items-center justify-between gap-4">
                         <div>
                             <h3 class="text-2xl font-bold text-white">One to One Chile</h3>
-                            <p class="mt-2 max-w-xl text-gray-300">Landing con enfoque comercial, contraste alto, hero impactante y llamados a la accion muy visibles.</p>
+                            <p class="mt-2 max-w-xl text-gray-300">Landing con enfoque comercial, contraste alto, hero impactante y llamados a la acción muy visibles.</p>
                         </div>
-                        <span class="rounded-full border border-brand.gold/25 bg-brand.gold/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand.gold">Referencia visual</span>
+                        <span class="rounded-full border border-brand.ember/25 bg-brand.ember/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand.ember">Sistema interno</span>
+                    
                     </div>
 
                     <div class="mt-6 grid gap-3 text-sm text-gray-200 sm:grid-cols-3">
                         <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Impacto visual fuerte</div>
-                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Jerarquia clara</div>
-                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">CTA orientados a conversion</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Jerarquía clara</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">CTA orientados a conversión</div>
                     </div>
 
                     <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
@@ -508,7 +1136,7 @@
                                 </div>
                             </div>
                             <div class="rounded-2xl border border-white/8 bg-white/5 p-4 text-sm leading-6 text-gray-200">
-                                Plataforma interna para ordenar datos, seguimiento y gestion de estudios de suelo.
+                                Plataforma interna para ordenar datos, seguimiento y gestión de estudios de suelo.
                             </div>
                         </div>
                     </div>
@@ -516,7 +1144,7 @@
                     <div class="flex flex-wrap items-start justify-between gap-4">
                         <div>
                             <h3 class="text-2xl font-bold text-white">SGAL para GEOCONTROL</h3>
-                            <p class="mt-2 max-w-xl text-gray-300">Sistema de gestion para estudios de suelo, con estructura pensada para operacion interna y consulta rapida de informacion.</p>
+                            <p class="mt-2 max-w-xl text-gray-300">Sistema de gestión para estudios de suelo, con estructura pensada para operación interna y consulta rápida de información.</p>
                         </div>
                         <span class="rounded-full border border-brand.cyan/25 bg-brand.cyan/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand.cyan">Sistema interno</span>
                     </div>
@@ -552,7 +1180,7 @@
                         <div class="mt-10 grid grid-cols-3 gap-3">
                             <div class="rounded-2xl border border-white/8 bg-black/25 p-3 text-center text-xs font-semibold text-gray-200">Themes custom</div>
                             <div class="rounded-2xl border border-white/8 bg-black/25 p-3 text-center text-xs font-semibold text-gray-200">Pagos integrados</div>
-                            <div class="rounded-2xl border border-white/8 bg-black/25 p-3 text-center text-xs font-semibold text-gray-200">Catalogo visual</div>
+                            <div class="rounded-2xl border border-white/8 bg-black/25 p-3 text-center text-xs font-semibold text-gray-200">Catálogo visual</div>
                         </div>
                     </div>
 
@@ -561,7 +1189,7 @@
                             <h3 class="text-2xl font-bold text-white">Neonlegends</h3>
                             <p class="mt-2 max-w-xl text-gray-300">Tienda online para letreros luminosos, con desarrollo sobre Shopify y una identidad visual alineada al producto.</p>
                         </div>
-                        <span class="rounded-full border border-brand.ember/25 bg-brand.ember/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand.ember">Mantener</span>
+                        <span class="rounded-full border border-brand.ember/25 bg-brand.ember/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand.ember">Mantención</span>
                     </div>
 
                     <div class="mt-6 grid gap-3 text-sm text-gray-200 sm:grid-cols-3">
@@ -586,40 +1214,21 @@
                             <span class="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-white">Streaming guide</span>
                         </div>
                         <div class="mt-8 grid grid-cols-[1.25fr_0.9fr_0.9fr] gap-3">
-                            <div class="rounded-[1.5rem] border border-white/10 bg-black/30 p-4">
-                                <div class="mb-4 flex items-center gap-3">
-                                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand.ember/15 text-brand.ember">
-                                        <i class="fas fa-film text-lg"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs uppercase tracking-[0.18em] text-gray-400">Explora</p>
-                                        <p class="text-lg font-bold text-white">Peliculas</p>
-                                    </div>
-                                </div>
-                                <div class="h-24 rounded-2xl bg-gradient-to-br from-brand.ember/30 to-brand.gold/10"></div>
-                            </div>
-                            <div class="space-y-3">
-                                <div class="h-20 rounded-[1.4rem] border border-white/10 bg-white/5"></div>
-                                <div class="h-28 rounded-[1.4rem] border border-white/10 bg-white/5"></div>
-                            </div>
-                            <div class="space-y-3">
-                                <div class="h-28 rounded-[1.4rem] border border-white/10 bg-white/5"></div>
-                                <div class="h-20 rounded-[1.4rem] border border-white/10 bg-white/5"></div>
-                            </div>
+                            
                         </div>
                     </div>
 
                     <div class="flex flex-wrap items-start justify-between gap-4">
                         <div>
                             <h3 class="text-2xl font-bold text-white">Cucuvana.com</h3>
-                            <p class="mt-2 max-w-xl text-gray-300">Sitio web de peliculas latino, pensado para descubrir contenido con una presentacion visual clara y atractiva.</p>
+                            <p class="mt-2 max-w-xl text-gray-300">Sitio web de películas latino, pensado para descubrir contenido con una presentación visual clara y atractiva.</p>
                         </div>
                         <span class="rounded-full border border-brand.gold/25 bg-brand.gold/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand.gold">Nuevo</span>
                     </div>
 
                     <div class="mt-6 grid gap-3 text-sm text-gray-200 sm:grid-cols-3">
-                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Catalogo visual</div>
-                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Exploracion de contenido</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Catálogo visual</div>
+                        <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Exploración de contenido</div>
                         <div class="rounded-2xl border border-white/8 bg-white/5 p-4">Enfoque en cine latino</div>
                     </div>
 
@@ -641,7 +1250,7 @@
                 <p class="mb-3 text-sm font-extrabold uppercase tracking-[0.28em] text-brand.cyan">Experiencia</p>
                 <h2 class="text-4xl font-extrabold text-white sm:text-5xl">
                     Experiencia profesional
-                    <span class="gradient-text">con foco en ejecucion.</span>
+                    <span class="gradient-text">con foco en ejecución.</span>
                 </h2>
             </div>
 
@@ -651,17 +1260,17 @@
                         <div class="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand.gold/12 text-brand.gold">
                             <i class="fas fa-bolt text-2xl"></i>
                         </div>
-                        <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-brand.gold">Practica profesional</p>
+                        <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-brand.gold">Práctica profesional</p>
                         <h3 class="mt-3 text-3xl font-bold text-white">Neonlegends Spa</h3>
-                        <p class="mt-3 text-base leading-7 text-gray-300">Participacion en entorno real de produccion, diseno, prototipado y trabajo web para una marca especializada en letreros luminosos.</p>
+                        <p class="mt-3 text-base leading-7 text-gray-300">Participación en entorno real de producción, diseño, prototipado y trabajo web para una marca especializada en letreros luminosos.</p>
                     </div>
 
                     <div class="grid gap-6 md:grid-cols-2">
                         <div class="rounded-[1.8rem] border border-white/8 bg-white/5 p-6">
                             <h4 class="text-lg font-bold text-white">Actividades principales</h4>
                             <ul class="mt-4 space-y-3 text-sm leading-7 text-gray-300">
-                                <li class="flex items-start gap-3"><i class="fas fa-check mt-1 text-brand.lime"></i><span>Diseno y prototipado de letreros.</span></li>
-                                <li class="flex items-start gap-3"><i class="fas fa-check mt-1 text-brand.lime"></i><span>Operacion de maquinaria y apoyo en fabricacion.</span></li>
+                                <li class="flex items-start gap-3"><i class="fas fa-check mt-1 text-brand.lime"></i><span>Diseño y prototipado de letreros.</span></li>
+                                <li class="flex items-start gap-3"><i class="fas fa-check mt-1 text-brand.lime"></i><span>Operación de maquinaria y apoyo en fabricación.</span></li>
                                 <li class="flex items-start gap-3"><i class="fas fa-check mt-1 text-brand.lime"></i><span>Desarrollo web y trabajo sobre Shopify.</span></li>
                             </ul>
                         </div>
@@ -669,8 +1278,8 @@
                         <div class="rounded-[1.8rem] border border-white/8 bg-white/5 p-6">
                             <h4 class="text-lg font-bold text-white">Aprendizajes clave</h4>
                             <ul class="mt-4 space-y-3 text-sm leading-7 text-gray-300">
-                                <li class="flex items-start gap-3"><i class="fas fa-star mt-1 text-brand.cyan"></i><span>Trabajo bajo presion y foco en entrega.</span></li>
-                                <li class="flex items-start gap-3"><i class="fas fa-star mt-1 text-brand.cyan"></i><span>Resolucion practica y criterio visual.</span></li>
+                                <li class="flex items-start gap-3"><i class="fas fa-star mt-1 text-brand.cyan"></i><span>Trabajo bajo presión y foco en entrega.</span></li>
+                                <li class="flex items-start gap-3"><i class="fas fa-star mt-1 text-brand.cyan"></i><span>Resolución práctica y criterio visual.</span></li>
                                 <li class="flex items-start gap-3"><i class="fas fa-star mt-1 text-brand.cyan"></i><span>Liderazgo y seguimiento de tareas.</span></li>
                             </ul>
                         </div>
@@ -690,7 +1299,7 @@
                         <span class="gradient-text">para tu negocio.</span>
                     </h2>
                 </div>
-                <p class="max-w-2xl text-lg leading-8 text-gray-300">Desarrollo experiencias digitales con una combinacion de criterio visual, implementacion tecnica y foco en objetivos concretos.</p>
+                <p class="max-w-2xl text-lg leading-8 text-gray-300">Desarrollo experiencias digitales con una combinación de criterio visual, implementación técnica y foco en objetivos concretos.</p>
             </div>
 
             <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
@@ -699,29 +1308,29 @@
                         <i class="fas fa-window-maximize text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-white">Sitios web y landings</h3>
-                    <p class="mt-4 leading-7 text-gray-300">Paginas corporativas y comerciales con mejor jerarquia visual, mejor primer impacto y mejor lectura del mensaje.</p>
+                    <p class="mt-4 leading-7 text-gray-300">Páginas corporativas y comerciales con mejor jerarquía visual, mejor primer impacto y mejor lectura del mensaje.</p>
                 </article>
 
                 <article class="section-enter glass-panel-strong rounded-[2rem] p-7">
                     <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand.cyan/10 text-brand.cyan">
                         <i class="fas fa-cart-shopping text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white">E-commerce y conversion</h3>
-                    <p class="mt-4 leading-7 text-gray-300">Tiendas online y flujos comerciales pensados para que el producto se vea mejor y el usuario llegue mas rapido a la accion.</p>
+                    <h3 class="text-2xl font-bold text-white">E-commerce y conversión</h3>
+                    <p class="mt-4 leading-7 text-gray-300">Tiendas online y flujos comerciales pensados para que el producto se vea mejor y el usuario llegue más rápido a la acción.</p>
                 </article>
 
                 <article class="section-enter glass-panel-strong rounded-[2rem] p-7 md:col-span-2 xl:col-span-1">
                     <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand.ember/10 text-brand.ember">
                         <i class="fas fa-gears text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white">Sistemas internos y automatizacion</h3>
-                    <p class="mt-4 leading-7 text-gray-300">Herramientas para ordenar procesos, centralizar informacion y reducir friccion operacional en el dia a dia.</p>
+                    <h3 class="text-2xl font-bold text-white">Sistemas internos y automatización</h3>
+                    <p class="mt-4 leading-7 text-gray-300">Herramientas para ordenar procesos, centralizar información y reducir fricción operacional en el día a día.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="relative py-20">
+    <section id="contacto" class="relative ">
         <div class="mx-auto max-w-7xl px-4 sm:px-6">
             <div class="section-enter glass-panel-strong rounded-[2.2rem] overflow-hidden">
                 <div class="grid lg:grid-cols-[0.9fr_1.1fr]">
@@ -729,27 +1338,40 @@
                         <div class="hero-glow left-0 top-0 h-40 w-40 bg-brand.gold/20"></div>
                         <p class="mb-3 text-sm font-extrabold uppercase tracking-[0.28em] text-brand.gold">Contacto</p>
                         <h2 class="text-4xl font-extrabold text-white sm:text-5xl">
-                            Enviame un mensaje y te llevo
-                            <span class="gradient-text">directo a WhatsApp.</span>
+                            Envíame un mensaje y
+                            <span class="gradient-text">comenzemos tu proyecto.</span>
                         </h2>
-                        <p class="mt-5 max-w-xl text-lg leading-8 text-gray-300">Escribe lo que necesitas y el boton generara un <strong>wa.link</strong> con tu mensaje listo para enviar al numero <strong>+56 9 8699 9317</strong>.</p>
                     </div>
 
                     <div class="p-8 lg:p-10">
                         <form id="whatsapp-form" class="space-y-5">
                             <label for="whatsapp-message" class="block text-sm font-bold uppercase tracking-[0.2em] text-gray-300">Tu mensaje</label>
-                            <textarea
-                                id="whatsapp-message"
-                                name="message"
-                                class="contact-field"
-                                maxlength="1000"
-                                required
-                                placeholder="Hola Gaspar, quiero mejorar mi sitio y necesito una propuesta..."
-                            ></textarea>
+                            <div class="contact-composer" id="contact-composer">
+                                <svg class="contact-composer-frame" id="contact-composer-frame" viewBox="0 0 1000 640" preserveAspectRatio="none" aria-hidden="true">
+                                    <defs>
+                                        <linearGradient id="contact-composer-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#23232b" stop-opacity="0.96"></stop>
+                                            <stop offset="100%" stop-color="#1a1a22" stop-opacity="0.98"></stop>
+                                        </linearGradient>
+                                        <linearGradient id="contact-composer-accent-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#63e6ff" stop-opacity="0"></stop>
+                                            <stop offset="55%" stop-color="#63e6ff" stop-opacity="0.7"></stop>
+                                            <stop offset="100%" stop-color="#ffd54a" stop-opacity="0.18"></stop>
+                                        </linearGradient>
+                                    </defs>
+                                    <path id="contact-composer-path" class="contact-composer-path"></path>
+                                    <path id="contact-composer-accent" class="contact-composer-accent"></path>
+                                </svg>
+                                <textarea
+                                    id="whatsapp-message"
+                                    name="message"
+                                    class="contact-field"
+                                    maxlength="1000"
+                                    required
+                                    placeholder="Hola Gaspar, quiero mejorar mi sitio y necesito una propuesta..."
+                                ></textarea>
 
-                            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                                <p class="text-sm leading-6 text-gray-400">El mensaje se convertira en un enlace corto de wa.link antes de redirigirte.</p>
-                                <button id="whatsapp-submit" type="submit" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand.gold px-7 py-4 text-sm font-extrabold text-ink-950 disabled:cursor-not-allowed disabled:opacity-70">
+                                <button id="whatsapp-submit" type="submit" class="contact-submit disabled:cursor-not-allowed disabled:opacity-70">
                                     <span id="whatsapp-submit-text">Enviar mensaje</span>
                                     <i class="fab fa-whatsapp text-base"></i>
                                 </button>
@@ -768,11 +1390,9 @@
             <div class="glass-panel rounded-[2rem] px-6 py-6">
                 <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
                     <div>
-                        <div class="flex items-center gap-3">
-                            <span class="h-3 w-3 rounded-full bg-brand.gold"></span>
-                            <span class="display-font text-xl font-bold text-white">GasparOsorio</span>
+                        <div class="flex items-center">
+                            <span class="logo-nav h-18 w-20"></span>
                         </div>
-                        <p class="mt-3 text-sm leading-6 text-gray-400">Ingeniero en Computacion e Informatica. Sitios, e-commerce y sistemas con foco visual y funcional.</p>
                     </div>
 
                     <div class="flex items-center gap-5 text-lg text-gray-400">
@@ -782,8 +1402,7 @@
                     </div>
 
                     <div class="text-sm text-gray-500">
-                        <p>&copy; <span id="current-year">2026</span> Gaspar Osorio.</p>
-                        <p>UNAB</p>
+                        <p>&copy; <span id="current-year">2026</span> G.O</p>
                     </div>
                 </div>
             </div>
@@ -797,6 +1416,10 @@
         const whatsappMessage = document.getElementById('whatsapp-message');
         const whatsappSubmit = document.getElementById('whatsapp-submit');
         const whatsappSubmitText = document.getElementById('whatsapp-submit-text');
+        const contactComposer = document.getElementById('contact-composer');
+        const contactComposerFrame = document.getElementById('contact-composer-frame');
+        const contactComposerPath = document.getElementById('contact-composer-path');
+        const contactComposerAccent = document.getElementById('contact-composer-accent');
         const formStatus = document.getElementById('form-status');
         const currentYear = document.getElementById('current-year');
 
@@ -846,14 +1469,96 @@
         });
 
         if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-            mobileMenu.querySelectorAll('a').forEach((link) => {
-                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            const syncMobileMenuState = () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                menuToggle.classList.toggle('menu-toggle-open', isOpen);
+                const menuIcon = menuToggle.querySelector('i');
+                if (menuIcon) {
+                    menuIcon.classList.toggle('fa-bars', !isOpen);
+                    menuIcon.classList.toggle('fa-xmark', isOpen);
+                }
+            };
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                syncMobileMenuState();
             });
+
+            mobileMenu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    syncMobileMenuState();
+                });
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) {
+                    mobileMenu.classList.add('hidden');
+                    syncMobileMenuState();
+                }
+            });
+
+            syncMobileMenuState();
         }
 
         function buildWhatsAppFallbackUrl(message) {
             return 'https://wa.me/' + WHATSAPP_COUNTRY_CODE + WHATSAPP_PHONE + '?text=' + encodeURIComponent(message);
+        }
+
+        function buildRoundedComposerPath(width, height, notchLeft, notchTop, outerRadius, innerRadius) {
+            const left = 1;
+            const top = 1;
+            const right = Math.max(left + 2, width - 1);
+            const bottom = Math.max(top + 2, height - 1);
+            const safeNotchLeft = Math.min(Math.max(notchLeft, left + outerRadius + 8), right - innerRadius - 8);
+            const safeNotchTop = Math.min(Math.max(notchTop, top + outerRadius + 12), bottom - innerRadius - 8);
+            const bottomJoin = Math.max(left + outerRadius + 8, safeNotchLeft - innerRadius);
+            const rightCorner = Math.max(top + outerRadius, safeNotchTop - innerRadius);
+
+            return [
+                'M', left + outerRadius, top,
+                'H', right - outerRadius,
+                'Q', right, top, right, top + outerRadius,
+                'V', rightCorner,
+                'Q', right, safeNotchTop, right - innerRadius, safeNotchTop,
+                'H', safeNotchLeft + innerRadius,
+                'Q', safeNotchLeft, safeNotchTop, safeNotchLeft, safeNotchTop + innerRadius,
+                'V', bottom - innerRadius,
+                'Q', safeNotchLeft, bottom, bottomJoin, bottom,
+                'H', left + outerRadius,
+                'Q', left, bottom, left, bottom - outerRadius,
+                'V', top + outerRadius,
+                'Q', left, top, left + outerRadius, top,
+                'Z'
+            ].join(' ');
+        }
+
+        function updateContactComposerFrame() {
+            if (!contactComposer || !contactComposerFrame || !contactComposerPath || !contactComposerAccent || !whatsappSubmit) return;
+
+            const composerRect = contactComposer.getBoundingClientRect();
+            const buttonRect = whatsappSubmit.getBoundingClientRect();
+            const width = Math.max(1, Math.round(composerRect.width));
+            const height = Math.max(1, Math.round(contactComposer.offsetHeight));
+            const outerRadius = width < 480 ? 28 : 32;
+            const innerRadius = width < 480 ? 20 : 24;
+            const gapX = width < 480 ? 12 : 14;
+            const gapY = width < 480 ? 16 : 18;
+            const buttonLeft = buttonRect.left - composerRect.left;
+            const buttonTop = buttonRect.top - composerRect.top;
+            const notchLeft = buttonLeft - gapX;
+            const notchTop = buttonTop - gapY;
+            const pathData = buildRoundedComposerPath(width, height, notchLeft, notchTop, outerRadius, innerRadius);
+            const cssPath = 'path("' + pathData + '")';
+
+            contactComposerFrame.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+            contactComposerPath.setAttribute('d', pathData);
+            contactComposerAccent.setAttribute('d', pathData);
+            if (whatsappMessage) {
+                whatsappMessage.style.clipPath = cssPath;
+                whatsappMessage.style.webkitClipPath = cssPath;
+            }
         }
 
         async function createWaLink(message) {
@@ -890,6 +1595,7 @@
                 whatsappSubmit.disabled = true;
                 whatsappSubmitText.textContent = 'Generando wa.link...';
                 formStatus.textContent = 'Preparando tu enlace de WhatsApp...';
+                requestAnimationFrame(updateContactComposerFrame);
 
                 try {
                     const shortUrl = await createWaLink(message);
@@ -900,8 +1606,20 @@
                 } finally {
                     whatsappSubmit.disabled = false;
                     whatsappSubmitText.textContent = 'Enviar mensaje';
+                    requestAnimationFrame(updateContactComposerFrame);
                 }
             });
+        }
+
+        updateContactComposerFrame();
+        window.addEventListener('resize', updateContactComposerFrame);
+
+        if (typeof ResizeObserver !== 'undefined' && contactComposer) {
+            const composerObserver = new ResizeObserver(() => updateContactComposerFrame());
+            composerObserver.observe(contactComposer);
+            if (whatsappSubmit) {
+                composerObserver.observe(whatsappSubmit);
+            }
         }
 
         if (currentYear) {
