@@ -572,9 +572,9 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             position: relative;
             height: 100%;
             min-height: 220px;
-            padding: 1rem;
+            padding: 1.15rem;
             background:
-                radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 28%),
+                radial-gradient(circle at top right, rgba(99, 230, 255, 0.12), transparent 30%),
                 linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
         }
 
@@ -588,6 +588,61 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             border-radius: 1rem;
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+        }
+
+        .project-browser-preview {
+            min-height: 220px;
+            border-radius: 1.6rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background:
+                linear-gradient(180deg, rgba(28, 29, 36, 0.98) 0%, rgba(17, 18, 22, 0.98) 100%);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.03),
+                0 20px 48px rgba(0, 0, 0, 0.34);
+        }
+
+        .project-browser-screen {
+            position: relative;
+            padding: 1.2rem;
+            min-height: 164px;
+            background:
+                radial-gradient(circle at top right, rgba(99, 230, 255, 0.08), transparent 28%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+        }
+
+        .project-browser-bg {
+            position: absolute;
+            inset: 1.2rem;
+            border-radius: 1.15rem;
+            background-position: top center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform: scale(1.03);
+            filter: blur(10px);
+            opacity: 0.4;
+        }
+
+        .project-browser-focus {
+            position: relative;
+            z-index: 1;
+            width: min(100%, 82%);
+            margin: 1.2rem auto 0;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow:
+                0 16px 30px rgba(0, 0, 0, 0.25),
+                0 6px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .project-browser-focus img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top center;
         }
 
         .projects-heading {
@@ -625,7 +680,7 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             display: block;
             object-fit: cover;
             object-position: top center;
-            border-radius: 0 0 0.6rem 0.6rem;
+            border-radius: 0.6rem;
         }
 
         .notebook-mockup-base {
@@ -654,14 +709,15 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             background: rgba(255, 255, 255, 0.26);
         }
 
-        .browser-bar-compact {
-            gap: 0.3rem;
-            padding: 0.5rem 0.7rem;
+        .browser-bar-project {
+            padding: 0.9rem 1rem;
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .browser-bar-compact .browser-dot {
-            width: 8px;
-            height: 8px;
+        .browser-bar-project .browser-dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.28);
         }
 
         .shine-line {
@@ -1171,11 +1227,6 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
                     <div class="projects-heading">
                         <div class="notebook-mockup" aria-hidden="true">
                             <div class="notebook-mockup-screen">
-                                <div class="browser-bar browser-bar-compact">
-                                    <span class="browser-dot"></span>
-                                    <span class="browser-dot"></span>
-                                    <span class="browser-dot"></span>
-                                </div>
                                 <img src="https://i.imgur.com/lS2Dq8m.png" alt="">
                             </div>
                             <div class="notebook-mockup-base"></div>
@@ -1192,12 +1243,19 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             <div class="grid gap-8 lg:grid-cols-2">
                 <article class="project-card glass-panel-strong section-enter rounded-[2rem] p-5 sm:p-6">
                     <div class="project-preview preview-oto mb-6">
-                        <div class="shine-line"></div>
-                        <div class="absolute inset-x-4 top-4 flex items-center justify-between">
-                            <span class="rounded-full border border-white/15 bg-black/55 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-brand.gold">Sitio comercial</span>
-                            
+                        <div class="project-browser-preview">
+                            <div class="browser-bar browser-bar-project">
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                            </div>
+                            <div class="project-browser-screen">
+                                <div class="project-browser-bg" style="background-image: url('https://i.imgur.com/TuAT3D3.png');"></div>
+                                <div class="project-browser-focus">
+                                    <img src="https://i.imgur.com/TuAT3D3.png" alt="Vista previa de One to One Chile">
+                                </div>
+                            </div>
                         </div>
-                        
                     </div>
 
                     <div class="flex flex-wrap items-center justify-between gap-4">
@@ -1226,13 +1284,18 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
 
                 <article class="project-card glass-panel-strong section-enter rounded-[2rem] p-5 sm:p-6">
                     <div class="project-preview preview-sgal mb-6">
-                        <div class="browser-bar">
-                            <span class="browser-dot"></span>
-                            <span class="browser-dot"></span>
-                            <span class="browser-dot"></span>
-                        </div>
-                        <div class="preview-site-frame">
-                            <img src="https://i.imgur.com/t4bVeMg.png" alt="Vista previa de Promodental">
+                        <div class="project-browser-preview">
+                            <div class="browser-bar browser-bar-project">
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                            </div>
+                            <div class="project-browser-screen">
+                                <div class="project-browser-bg" style="background-image: url('https://i.imgur.com/t4bVeMg.png');"></div>
+                                <div class="project-browser-focus">
+                                    <img src="https://i.imgur.com/t4bVeMg.png" alt="Vista previa de Promodental">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="flex flex-wrap items-start justify-between gap-4">
@@ -1264,13 +1327,18 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             <div class="grid gap-8 lg:grid-cols-2">
                 <article class="project-card glass-panel-strong section-enter rounded-[2rem] p-5 sm:p-6">
                     <div class="project-preview preview-neon mb-6 p-5">
-                        <div class="preview-site-frame p-0">
-                            <div class="browser-bar">
+                        <div class="project-browser-preview">
+                            <div class="browser-bar browser-bar-project">
                                 <span class="browser-dot"></span>
                                 <span class="browser-dot"></span>
                                 <span class="browser-dot"></span>
                             </div>
-                            <img src="https://i.imgur.com/QwiqTWY.png" alt="Vista previa de Barbería Ecru">
+                            <div class="project-browser-screen">
+                                <div class="project-browser-bg" style="background-image: url('https://i.imgur.com/QwiqTWY.png');"></div>
+                                <div class="project-browser-focus">
+                                    <img src="https://i.imgur.com/QwiqTWY.png" alt="Vista previa de Barbería Ecru">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="flex flex-wrap items-start justify-between gap-4">
@@ -1296,12 +1364,18 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
 
                 <article class="project-card glass-panel-strong section-enter rounded-[2rem] p-5 sm:p-6">
                     <div class="project-preview preview-cucuvana mb-6 p-5">
-                        <div class="flex items-center justify-between">
-                            <span class="rounded-full border border-brand.gold/25 bg-brand.gold/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-brand.gold">Cine latino</span>
-                            <span class="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-white">Streaming guide</span>
-                        </div>
-                        <div class="mt-8 grid grid-cols-[1.25fr_0.9fr_0.9fr] gap-3">
-                            
+                        <div class="project-browser-preview">
+                            <div class="browser-bar browser-bar-project">
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                            </div>
+                            <div class="project-browser-screen">
+                                <div class="project-browser-bg" style="background-image: url('https://i.imgur.com/BPCM4jG.png');"></div>
+                                <div class="project-browser-focus">
+                                    <img src="https://i.imgur.com/BPCM4jG.png" alt="Vista previa de Cucuvana">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
