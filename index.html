@@ -598,13 +598,14 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
 
         .notebook-mockup {
             flex: 0 0 auto;
-            width: clamp(84px, 9vw, 124px);
+            width: clamp(98px, 10vw, 138px);
         }
 
         .notebook-mockup-screen {
             position: relative;
             border-radius: 0.9rem;
-            padding: 0.4rem;
+            padding: 0.32rem;
+            overflow: hidden;
             background: linear-gradient(180deg, #50545f 0%, #1b1d24 100%);
             box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
         }
@@ -624,7 +625,7 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             display: block;
             object-fit: cover;
             object-position: top center;
-            border-radius: 0.6rem;
+            border-radius: 0 0 0.6rem 0.6rem;
         }
 
         .notebook-mockup-base {
@@ -651,6 +652,16 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             height: 10px;
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.26);
+        }
+
+        .browser-bar-compact {
+            gap: 0.3rem;
+            padding: 0.5rem 0.7rem;
+        }
+
+        .browser-bar-compact .browser-dot {
+            width: 8px;
+            height: 8px;
         }
 
         .shine-line {
@@ -954,7 +965,7 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             }
 
             .notebook-mockup {
-                width: 84px;
+                width: 96px;
             }
         }
     </style>
@@ -1160,6 +1171,11 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
                     <div class="projects-heading">
                         <div class="notebook-mockup" aria-hidden="true">
                             <div class="notebook-mockup-screen">
+                                <div class="browser-bar browser-bar-compact">
+                                    <span class="browser-dot"></span>
+                                    <span class="browser-dot"></span>
+                                    <span class="browser-dot"></span>
+                                </div>
                                 <img src="https://i.imgur.com/lS2Dq8m.png" alt="">
                             </div>
                             <div class="notebook-mockup-base"></div>
@@ -1249,6 +1265,11 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
                 <article class="project-card glass-panel-strong section-enter rounded-[2rem] p-5 sm:p-6">
                     <div class="project-preview preview-neon mb-6 p-5">
                         <div class="preview-site-frame p-0">
+                            <div class="browser-bar">
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                            </div>
                             <img src="https://i.imgur.com/QwiqTWY.png" alt="Vista previa de Barbería Ecru">
                         </div>
                     </div>
@@ -1554,7 +1575,7 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
         const WALINK_ENDPOINT = 'https://api.wa.link/v1/newlink';
         const WALINK_API_KEY = '3SPdHlx5Kn8Wv3PYFwg5L6YAxBmFi3D06a8PDZvG';
         const WHATSAPP_COUNTRY_CODE = '56';
-        const WHATSAPP_PHONE = '986999317';
+        const WHATSAPP_PHONE = '978157442';
 
         function updateProgressBar() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
