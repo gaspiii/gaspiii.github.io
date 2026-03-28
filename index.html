@@ -606,6 +606,7 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             position: relative;
             padding: 1.2rem;
             min-height: 164px;
+            overflow: hidden;
             background:
                 radial-gradient(circle at top right, rgba(99, 230, 255, 0.08), transparent 28%),
                 linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
@@ -664,8 +665,30 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
             background: rgba(10, 10, 14, 0.92);
         }
 
+        .project-browser-screen-oto .project-browser-bg {
+            inset: 1.35rem 1.35rem 1.2rem 1.5rem;
+            opacity: 0.22;
+            filter: blur(18px);
+            transform: scale(1.08);
+        }
+
+        .project-browser-screen-oto::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(90deg, rgba(17, 18, 22, 0.88) 0%, rgba(17, 18, 22, 0.18) 12%, rgba(17, 18, 22, 0) 24%);
+        }
+
         .project-browser-screen-oto .project-browser-focus img {
             object-position: center center;
+        }
+
+        .project-browser-screen-cucuvana .project-browser-bg {
+            inset: 0.9rem;
+            filter: blur(22px);
+            opacity: 0.58;
+            transform: scale(1.12);
         }
 
         .project-browser-screen-cucuvana .project-browser-focus img {
@@ -1217,7 +1240,7 @@ src="https://www.facebook.com/tr?id=26164680946549747&ev=PageView&noscript=1"
                     </div>
 
                     <div class="flex flex-wrap gap-4">
-                        <a href="#proyectos" class="inline-flex items-center gap-2 rounded-full bg-brand.gold px-7 py-4 text-sm font-extrabold text-ink-950">
+                        <a href="#proyectos" class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-7 py-4 text-sm font-bold text-white">
                             Ver proyectos
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
